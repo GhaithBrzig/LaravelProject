@@ -1,5 +1,5 @@
-@extends("frontoffice_layout.frontoffice_layout")
+@extends("layouts.backoffice_layout")
 
-@section('content')
+@section('frontoffice')
     <h1>Hello world !</h1>
 @endsection
