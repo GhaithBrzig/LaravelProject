@@ -244,7 +244,7 @@
             </div><!--header-data end-->
         </div>
     </header><!--header end-->
-    @yield('content')
+    @yield('frontoffice')
 
 </div>
 
