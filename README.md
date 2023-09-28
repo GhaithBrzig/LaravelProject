@@ -10,8 +10,11 @@
 ```
 $ git clone https://github.com/GhaithBrzig/LaravelProject
 ```
-2 -create database
-
+2- Install packages
+```
+$ composer install
+```
+3 -create database
 ```
 $ php artisan db:create
 ```
