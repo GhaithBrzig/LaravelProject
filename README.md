@@ -18,5 +18,7 @@ $ composer install
 ```
 $ php artisan db:create
 ```
-
-
+4 - Migration 
+````
+$ php artisan migrate
+````
