@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-class StatusEnum
+class JobType
 {
-    const PENDING = 'pending';
-    const APPROVED = 'approved';
-    const REJECTED = 'rejected';
+    const FULL_TIME = 'full name';
+    const PART_Time = 'part time';
+    const CONTRACT = 'contract';
+    const TEMPORARY = 'temporary';
 }
