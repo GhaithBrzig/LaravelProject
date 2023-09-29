@@ -19,7 +19,11 @@ $ composer install
 $ php artisan db:create
 ```
 # Usefull command
- Migration 
+1- create model with migration file
+```
+$ php artisan make:model <entite's name> -m
+```
+2- Migration 
 
 - ````
   $ php artisan make:migration create_<table_name>_table
