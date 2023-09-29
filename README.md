@@ -18,7 +18,8 @@ $ composer install
 ```
 $ php artisan db:create
 ```
-4 - Migration 
+# Usefull command
+ Migration 
 
 - ````
   $ php artisan make:migration create_<table_name>_table
