@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('profileImage');
             $table->string('coverImage');
+            $table->enum('usertype', ['company','simple user']);
             $table->rememberToken();
             $table->timestamps();
         });
