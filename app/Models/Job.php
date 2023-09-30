@@ -17,4 +17,8 @@ class Job extends Model
         'location',
     ];
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'job_tags');
+    }
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class JobTag extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'job_id',
+        'tag_id',
+    ];
 }
