@@ -1,7 +1,18 @@
 $(window).on("load", function() {
     "use strict";
 
-    
+     //  ============= POST SERVICE POPUP FUNCTION =========
+
+    $(".post-service").on("click", function(){
+        $(".post-popup.service_post").addClass("active");
+        $(".wrapper").addClass("overlay");
+        return false;
+    });
+    $(".post-service > a").on("click", function(){
+         $(".post-popup.service_post").removeClass("active");
+        $(".wrapper").removeClass("overlay");
+        return false;
+    });
 
     //  ============= POST PROJECT POPUP FUNCTION =========
 

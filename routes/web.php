@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontoffice/home');
+    return view('home');
 });
 
 Route::get('/dash', function () {
     return view('backOffice/dashboard');
 });
+Route::resource('services', ServiceController::class);

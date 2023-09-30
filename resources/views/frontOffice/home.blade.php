@@ -1,5 +1,19 @@
-@extends("backOffice.backoffice_layout")
+@extends('frontOffice.frontoffice_layout')
 
-@section('backoffice')
-    <h1>Hello world !</h1>
+@section('frontoffice')
+
+<div class="d-flex justify-content-between ">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <h1>test</h1>
+    <h1>test</h1>
+    <h1>test</h1>
+
+</div>
 @endsection
