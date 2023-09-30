@@ -5,7 +5,7 @@
         <div class="main-section">
             <div class="container">
                 <div class="main-section-data">
-                    <div class="row">
+                    <div class="row" style="height: 730px">
                         <div class="col-lg-3">
                             <div class="filter-secs">
                                 <div class="filter-heading">
