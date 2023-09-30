@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('serviceName');
             $table->integer('pricePerHour');
             $table->string('description');
-            $table->string('type');
+            $table->enum('type', ['Full time', 'Part time', 'Contract','Temporary']);
             $table->timestamps();
         });
     }
