@@ -18,6 +18,13 @@ $ composer install
 ```
 $ php artisan db:create
 ```
+
+run server 
+```
+$ npm run dev
+$ php artisan serve
+```
+
 # Usefull command
 1- create model with migration file
 ```
