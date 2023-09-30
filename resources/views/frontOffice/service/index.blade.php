@@ -7,6 +7,7 @@
                 <div class="main-section-data">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+                            {{-- left bar --}}
                             <div class="main-left-sidebar no-margin">
                                 <div class="user-data full-width">
                                     <div class="user-profile">
@@ -121,6 +122,7 @@
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
+                                {{-- post link --}}
                                 <div class="post-topbar">
                                     <div class="user-picy">
                                         <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user-pic.png') }}"
@@ -128,16 +130,14 @@
                                     </div>
                                     <div class="post-st">
                                         <ul>
-                                            <li><a class="post_project " href="#" title="">Post a Project</a>
-                                            </li>
-                                            <li><a class="post-jb " href="#" title="">Post a Job</a></li>
-                                            <li><a class="post-service active" href="#" title="">Post a
-                                                    Service</a></li>
+                                            <li>
+                                                <a class="" href="{{ route('service.create') }}">Post a service</a>
 
+                                                {{-- <a class="post-jb active" href="#" title="">Post a service</a></li> --}}
                                         </ul>
                                     </div><!--post-st end-->
                                 </div>
-                                <!--post-topbar end-->
+                                {{-- post link end--}}
 
                                 <div class="posts-section">
                                     @if (count($data) > 0)
@@ -309,7 +309,7 @@
 
                             </div><!--main-ws-sec end-->
                         </div>
-                        {{-- left bar --}}
+                        {{-- right bar --}}
                         <div class="col-lg-3 pd-right-none no-pd">
                             <div class="right-sidebar">
                                 <div class="widget widget-about">
@@ -482,149 +482,9 @@
         </div>
     </main>
 
-    <div class="post-popup pst-pj">
-        <div class="post-project">
-            <h3>Post a project</h3>
-            <div class="post-project-fields">
-                <form>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" name="title" placeholder="Title">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="inp-field">
-                                <select>
-                                    <option>Category</option>
-                                    <option>Category 1</option>
-                                    <option>Category 2</option>
-                                    <option>Category 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" name="skills" placeholder="Skills">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="price-sec">
-                                <div class="price-br">
-                                    <input type="text" name="price1" placeholder="Price">
-                                    <i class="la la-dollar"></i>
-                                </div>
-                                <span>To</span>
-                                <div class="price-br">
-                                    <input type="text" name="price1" placeholder="Price">
-                                    <i class="la la-dollar"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <textarea name="description" placeholder="Description"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <ul>
-                                <li><button class="active" type="submit" value="post">Post</button></li>
-                                <li><a href="#" title="">Cancel</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div><!--post-project-fields end-->
-            <a href="#" title=""><i class="la la-times-circle-o"></i></a>
-        </div><!--post-project end-->
-    </div><!--post-project-popup end-->
+    @yield('create')
+   
 
-    <div class="post-popup job_post">
-        <div class="post-project">
-            <h3>Post a job</h3>
-            <div class="post-project-fields">
-                <form>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" name="title" placeholder="Title">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="inp-field">
-                                <select>
-                                    <option>Category</option>
-                                    <option>Category 1</option>
-                                    <option>Category 2</option>
-                                    <option>Category 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" name="skills" placeholder="Skills">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="price-br">
-                                <input type="text" name="price1" placeholder="Price">
-                                <i class="la la-dollar"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="inp-field">
-                                <select>
-                                    <option>Full Time</option>
-                                    <option>Half time</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <textarea name="description" placeholder="Description"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <ul>
-                                <li><button class="active" type="submit" value="post">Post</button></li>
-                                <li><a href="#" title="">Cancel</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div><!--post-project-fields end-->
-            <a href="#" title="">x<i class="la la-times-circle-o"></i></a>
-        </div><!--post-project end-->
-    </div><!--post-project-popup end-->
-
-    <div class="post-popup service_post">
-        <div class="post-project">
-            <h3>Post a service</h3>
-            <div class="post-project-fields">
-                <form>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" name="title" placeholder="Title">
-                        </div>
-
-                        <div class="col-lg-12">
-                            <input type="text" name="skills" placeholder="Skills">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="price-br">
-                                <input type="text" name="price1" placeholder="Price">
-                                <i class="la la-dollar"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="inp-field">
-                                <select>
-                                    <option>Full Time</option>
-                                    <option>Half time</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <textarea name="description" placeholder="Description"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <ul>
-                                <li><button class="active" type="submit" value="post">Post</button></li>
-                                <li><a href="#" title="">Cancel</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div><!--post-project-fields end-->
-            <a href="#" title=""><i class="la la-times-circle-o"></i></a>
-        </div><!--post-project end-->
-    </div><!--post-project-popup end-->
+   
+   
 @endsection

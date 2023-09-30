@@ -21,4 +21,4 @@ Route::get('/', function () {
 Route::get('/dash', function () {
     return view('backOffice/dashboard');
 });
-Route::resource('services', ServiceController::class);
+Route::resource('service', ServiceController::class);
