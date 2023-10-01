@@ -149,14 +149,14 @@
                                                 <div class="ed-opts">
                                                     <a href="#" title="" class="ed-opts-open"><i class="fa fa-ellipsis-v"></i></a>
                                                     <ul class="ed-options">
-                                                        <li><a href="#" title="">Edit Post</a></li>
+                                                        <li><a href="{{ route('jobs.edit', ['job' => $job->id]) }}" title="">Edit Post</a></li>
                                                         <li><a href="#" title="">Unsaved</a></li>
                                                         <li><a href="#" title="">Unbid</a></li>
                                                         <li><a href="#" title="">Close</a></li>
                                                         <li><a href="#" title="">Hide</a></li>
                                                         <li>
                                                             <a href="#" title=""
-                                                               onclick="confirmDelete('{{ $job->title }}', {{ $job->id }})">Delete</a>
+                                                               onclick="confirmDelete('{{ $job->title }}', {{ $job->id }})" class="text-danger">Delete</a>
                                                         </li>
                                                     </ul>
                                                 </div>

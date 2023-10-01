@@ -80,7 +80,9 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $tags = Tag::all(); // Assuming you want to display tags in the edit form
+        return view('frontoffice.Jobs.edit', compact('job', 'tags'));
     }
 
     /**
@@ -92,8 +94,31 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate the form data
+        $request->validate([
+            'title' => 'required',
+            'skills' => 'required',
+            'price1' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        // Find the job by ID
+        $job = Job::findOrFail($id);
+
+        // Update job details
+        $job->title = $request->title;
+        $job->salary = $request->price1;
+        $job->location = $request->location;
+        $job->description = $request->description;
+        $job->save();
+
+        // Sync tags
+        $job->tags()->sync($request->skills);
+
+        return redirect()->route('jobs.index')->with('success', 'Job updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.
