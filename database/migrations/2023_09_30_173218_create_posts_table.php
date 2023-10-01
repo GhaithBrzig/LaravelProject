@@ -16,15 +16,14 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->date('publicationDate');
+            $table->text('content'); 
             $table->enum('category', ['Career Advice', 'Success Stories', 'Entrepreneurship','Mentorship']);          
-            $table->unsignedBigInteger('user_id'); 
+            $table->unsignedBigInteger('user_id');
             $table->integer('likes');
             $table->timestamps();
 
              // Define foreign key constraint
-             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
       
              
         });

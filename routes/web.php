@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,12 @@ Route::get('/', function () {
 Route::get('/dash', function () {
     return view('backOffice/dashboard');
 });
+
+
+// Route to display a list of posts
+Route::resource('/posts', PostController::class);
+
+
+
+
 Route::resource('services', ServiceController::class);
