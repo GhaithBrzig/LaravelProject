@@ -150,7 +150,10 @@
                                                     <a href="#" title="" class="ed-opts-open"><i class="fa fa-ellipsis-v"></i></a>
                                                     <ul class="ed-options">
                                                         <li><a href="{{ route('jobs.edit', ['job' => $job->id]) }}" title="">Edit Post</a></li>
-                                                        <li><a href="#" title="">Unsaved</a></li>
+                                                        <li>
+                                                            <a href="{{ route('jobs.show', ['job' => $job->id]) }}" title="" class="text-warning">Details</a>
+                                                        </li>
+
                                                         <li><a href="#" title="">Unbid</a></li>
                                                         <li><a href="#" title="">Close</a></li>
                                                         <li><a href="#" title="">Hide</a></li>
