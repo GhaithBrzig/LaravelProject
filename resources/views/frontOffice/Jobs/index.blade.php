@@ -140,10 +140,10 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/us-pic.png" alt="">
+                                                    <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}">
                                                     <div class="usy-name">
-                                                        <h3>Ghiath</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <h3>Ghaith</h3>
+                                                        <span> <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/clock.png') }}">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -168,8 +168,7 @@
                                             <div class="epi-sec">
                                                 <ul class="descp">
                                                     <li>
-                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/icon8.png') }}"
-                                                             alt=""><span>Web developer</span>
+                                                        <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/icon8.png') }}"><span>Web developer</span>
                                                     </li>
                                                     <li>
                                                         <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/icon9.png') }}"
@@ -230,7 +229,8 @@
                         <div class="col-lg-3">
                             <div class="right-sidebar">
                                 <div class="widget widget-about">
-                                    <img src="images/wd-logo.png" alt="">
+                                    <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/wd-logo.png') }}"
+                                         alt="">
                                     <h3>Track Time on Workwise</h3>
                                     <span>Pay only for the Hours worked</span>
                                     <div class="sign_link">

@@ -12,7 +12,8 @@
                                     <div class="user-profile">
                                         <div class="username-dt">
                                             <div class="usr-pic">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user-pic.png') }}"
+
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user-pic.png') }}"
                                                      alt="">
                                             </div>
                                         </div><!--username-dt end-->
@@ -42,7 +43,7 @@
                                     </div><!--sd-title end-->
                                     <div class="suggestions-list">
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s1.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s1.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Jessica William</h4>
@@ -51,7 +52,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s2.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s2.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>John Doe</h4>
@@ -60,7 +61,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s3.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s3.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Poonam</h4>
@@ -69,7 +70,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s4.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s4.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Bill Gates</h4>
@@ -78,7 +79,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s5.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s5.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Jessica William</h4>
@@ -87,7 +88,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s6.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s6.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>John Doe</h4>
@@ -112,8 +113,8 @@
                                         <li><a href="#" title="">Copyright Policy</a></li>
                                     </ul>
                                     <div class="cp-sec">
-                                        <img src="{{Vite::asset('assets/frontoffice_asset/images/logo2.png') }}" alt="">
-                                        <p><img src="{{Vite::asset('assets/frontoffice_asset/images/cp.png') }}"
+                                        <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/logo2.png') }}" alt="">
+                                        <p><img src="{{Vite::asset('resources/assets/frontoffice_asset/images/cp.png') }}"
                                                 alt="">Copyright 2019</p>
                                     </div>
                                 </div><!--tags-sec end-->
@@ -123,7 +124,7 @@
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user-pic.png') }}"
+                                        <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user-pic.png') }}"
                                              alt="">
                                     </div>
                                     <div class="post-st">
@@ -142,7 +143,7 @@
                                             <div class="post-bar">
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
-                                                        <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/us-pic.png') }}"
+                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}"
                                                              alt="">
                                                         <div class="usy-name">
                                                             <h3>John Doe</h3>
@@ -163,10 +164,10 @@
                                                 </div>
                                                 <div class="epi-sec">
                                                     <ul class="descp">
-                                                        <li><img src="{{Vite::asset('assets/frontoffice_asset/images/icon8.png') }}"
+                                                        <li><img src="{{Vite::asset('resources/assets/frontoffice_asset/images/icon8.png') }}"
                                                                  alt=""><span>Service</span>
                                                         </li>
-                                                        <li><img src="{{Vite::asset('assets/frontoffice_asset/images/icon9.png') }}"
+                                                        <li><img src="{{Vite::asset('resources/assets/frontoffice_asset/images/icon9.png') }}"
                                                                  alt=""><span>Tunisia</span></li>
                                                     </ul>
                                                     <ul class="bk-links">
@@ -209,14 +210,14 @@
                                         </div>
                                         <div class="profiles-slider">
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user1.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user1.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -224,14 +225,14 @@
                                                 <a href="#" title="">View Profile</a>
                                             </div><!--user-profy end-->
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user2.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user2.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -239,14 +240,14 @@
                                                 <a href="#" title="">View Profile</a>
                                             </div><!--user-profy end-->
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user3.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user3.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -254,14 +255,14 @@
                                                 <a href="#" title="">View Profile</a>
                                             </div><!--user-profy end-->
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user1.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user1.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -269,14 +270,14 @@
                                                 <a href="#" title="">View Profile</a>
                                             </div><!--user-profy end-->
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user2.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user2.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -284,14 +285,14 @@
                                                 <a href="#" title="">View Profile</a>
                                             </div><!--user-profy end-->
                                             <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user3.png') }}"
+                                                <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/user3.png') }}"
                                                      alt="">
                                                 <h3>John Doe</h3>
                                                 <span>Graphic Designer</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Follow</a></li>
                                                     <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
+                                                                src="{{Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
                                                                 alt=""></a></li>
                                                     <li><a href="#" title="" class="hire">hire</a>
                                                     </li>
@@ -308,7 +309,7 @@
                         <div class="col-lg-3 pd-right-none no-pd">
                             <div class="right-sidebar">
                                 <div class="widget widget-about">
-                                    <img src="{{Vite::asset('assets/frontoffice_asset/images/wd-logo.png') }}" alt="">
+                                    <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/wd-logo.png') }}" alt="">
                                     <h3>Track Time on Workwise</h3>
                                     <span>Pay only for the Hours worked</span>
                                     <div class="sign_link">
@@ -411,7 +412,7 @@
                                     </div><!--sd-title end-->
                                     <div class="suggestions-list">
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s1.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s1.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Jessica William</h4>
@@ -420,7 +421,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s2.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s2.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>John Doe</h4>
@@ -429,7 +430,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s3.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s3.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Poonam</h4>
@@ -438,7 +439,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s4.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s4.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Bill Gates</h4>
@@ -447,7 +448,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s5.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s5.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>Jessica William</h4>
@@ -456,7 +457,7 @@
                                             <span><i class="fa fa-plus"></i></span>
                                         </div>
                                         <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s6.png') }}"
+                                            <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/s6.png') }}"
                                                  alt="">
                                             <div class="sgt-text">
                                                 <h4>John Doe</h4>
