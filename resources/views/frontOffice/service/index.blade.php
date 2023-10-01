@@ -125,26 +125,31 @@
                             <div class="main-ws-sec">
                                 {{-- post link --}}
                                 <div class="post-topbar">
-                                    <div class="user-picy">
-                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user-pic.png') }}"
-                                            alt="">
-                                    </div>
                                     <div class="post-st">
                                         <ul>
                                             <li>
                                                 <a class="" href="{{ route('service.create') }}">Post a service</a>
-
-                                                {{-- <a class="post-jb active" href="#" title="">Post a service</a></li> --}}
                                         </ul>
-                                    </div><!--post-st end-->
+                                    </div>
                                 </div>
                                 {{-- post link end --}}
-                                @if ($message = Session::get('success'))
-                                    <div class="alert alert-success">
-                                        <p>{{ $message }}</p>
+                        
+                                <div class="posts-section">
+                                    @if (session()->has('success'))
+                                    <div class="alert alert-dismissable alert-success">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                {!! session()->get('success') !!}
+                                            </div>
+                                            <div>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endif
-                                <div class="posts-section">
+                                
                                     @if (count($data) > 0)
                                         @foreach ($data as $row)
                                             <div class="post-bar">
@@ -220,8 +225,8 @@
                                             </div><!--post-bar end-->
                                         @endforeach
                                     @else
-                                        <div class="alert-danger   ">
-                                            No Data Found
+                                        <div class="fw-bold text-center py-5   ">
+                                            nothing to display
                                         </div>
                                     @endif
                                     <div class="top-profiles">
@@ -499,10 +504,5 @@
             </div>
         </div>
     </main>
-
-    @yield('create')
-
-
-
 
 @endsection

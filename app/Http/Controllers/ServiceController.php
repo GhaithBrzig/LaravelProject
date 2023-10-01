@@ -39,12 +39,24 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'serviceName'          =>  'required',
+            'pricePerHour'          =>  'required',
+            'description'          =>  'required',
+            'type'         =>  'required'
+        ]);
 
-        $service = Service::create($request->all());
 
-      
+        $service = new Service;
 
-        return redirect()->route('service.index');
+        $service->serviceName = $request->serviceName;
+        $service->pricePerHour = $request->pricePerHour;
+        $service->description = $request->description;
+        $service->type = $request->type;
+    
+        $service->save();
+
+        return redirect()->route('service.index')->with('success', 'service Added successfully.');;
     }
 
 
@@ -76,7 +88,7 @@ class ServiceController extends Controller
         
         $service->fill($request->post())->save();
 
-        return redirect()->route('service.index')->with('success','Company Has Been updated successfully');
+        return redirect()->route('service.index')->with('success','service Has Been updated successfully');
     }
 
      /**
