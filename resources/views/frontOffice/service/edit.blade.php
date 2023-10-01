@@ -4,24 +4,25 @@
     <div class="post-project-fields">
         <h3 class="text-center mb-5 fw-bold ">Post a service</h3>
 
-        <form action="{{ route('service.store') }}" method="POST">
+        <form action="{{ route('service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-lg-12">
-                    <input type="text" name="serviceName" placeholder="Title">
+                    <input type="text" name="serviceName" value="{{$service->serviceName}}"  placeholder="Title">
                 </div>
                 {{-- <div class="col-lg-12">
                     <input type="text" name="skills" placeholder="Skills">
                 </div> --}}
                 <div class="col-lg-6">
                     <div class="price-br">
-                        <input type="number" name="pricePerHour" placeholder="price per hour">
-                        <i class="fa fa-dollar"></i>
+                        <input type="text" name="pricePerHour" value="{{$service->pricePerHour}}" placeholder="price per hour">
+                        <i class="la la-dollar"></i>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="inp-field">
-                        <select name="type">
+                        <select name="type" value="{{$service->type}}" >
                             <option value="Full time">Full Time</option>
                             <option value="Part time">Part time</option>
                             <option value="Contract">Contract</option>
@@ -31,12 +32,12 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <textarea name="description" placeholder="Description"></textarea>
+                    <textarea name="description"  placeholder="Description">{{$service->description}}</textarea>
                 </div>
                 <div class="col-lg-12">
                     <ul class="d-flex  justify-content-center ">
                         <li><button class="active" type="submit" value="post">Post</button></li>
-                        <li><a href="{{ route('service.index') }}" title="" >back</a></li>
+                        <li><a href="{{ route('service.index') }}" title="">back</a></li>
                     </ul>
                 </div>
             </div>

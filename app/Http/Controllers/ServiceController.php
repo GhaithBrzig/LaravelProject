@@ -42,16 +42,53 @@ class ServiceController extends Controller
 
         $service = Service::create($request->all());
 
-        /*$service = new Service([
-            "name" => $request->get('name'),
-            "description" => $request->get('description'),
-            "price" => $request->get('price'),
-            "stock" => $request->get('stock'),
-        ]);*/
-
+      
 
         return redirect()->route('service.index');
     }
 
+
+     /**
+    * Show the form for editing the specified resource.
+    *
+    * @param  \App\Service  $service
+    * @return \Illuminate\Http\Response
+    */
+    public function edit(Service $service)
+    {
+        return view('frontoffice.service.edit',compact('service'));
+    }
+
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Service  $service
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, Service $service)
+    {
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'address' => 'required',
+        // ]);
+        
+        $service->fill($request->post())->save();
+
+        return redirect()->route('service.index')->with('success','Company Has Been updated successfully');
+    }
+
+     /**
+    * Remove the specified resource from storage.
+    *
+    * @param  \App\Service  $service
+    * @return \Illuminate\Http\Response
+    */
+    public function destroy(Service $service)
+    {
+        $service->delete();
+        return redirect()->route('service.index')->with('success','service has been deleted successfully');
+    }
   
 }
