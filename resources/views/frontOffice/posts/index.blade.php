@@ -146,16 +146,16 @@
                                                     <p> {{ $post->content }} <a href="#" title=""></a></p>
 												
                                                     <div class="job-status-bar">
-												<ul class="like-com">
-													<li>
-														<a href="#"><i class="fas fa-heart"></i> Like</a>
-														<img src="images/liked-img.png" alt="">
-														<span>25</span>
-													</li> 
-													<li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
-												</ul>
-												<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-											</div>
+                                                        <ul class="like-com">
+                                                            <li>
+                                                                <a href="#"><i class="fas fa-heart"></i> Like</a>
+                                                                <img src="images/liked-img.png" alt="">
+                                                                <span>25</span>
+                                                            </li> 
+                                                            <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
+                                                        </ul>
+												
+											        </div>
                                                 </div>
 
                                             </div><!--post-bar end-->
