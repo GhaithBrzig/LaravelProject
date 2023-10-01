@@ -56,6 +56,8 @@
                                     <li><a href="companies.html" title="">services feed</a></li>
                                     <li><a href="company-profile.html" title="">job feed</a></li>
                                     <li><a href="company-profile.html" title="">project feed</a></li>
+                                    <li><a href="company-profile.html" title="">event feed</a></li>
+
                                 </ul>
                             </li>
                             <li>
@@ -76,6 +78,14 @@
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon3.png') }}"
                                             alt=""></span>
                                     Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a href="events.html" title="">
+                                    <span><img
+                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon2.png') }}"
+                                            alt=""></span>
+                                    events
                                 </a>
                             </li>
                             <li>

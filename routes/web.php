@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,6 @@ Route::get('/dash', function () {
     return view('backOffice/dashboard');
 });
 Route::resource('services', ServiceController::class);
+Route::resource('events', EventController::class);
+
+
