@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('frontOffice/home');
+//});
 
 Route::get('/dash', function () {
     return view('backOffice/dashboard');
 });
 Route::resource('services', ServiceController::class);
 Route::resource('jobs', JobController::class);
+Route::resource('/', TagController::class);
+
+

@@ -46,7 +46,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html" title="">
+                                <a href="{{ url('/') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon1.png') }}"
                                             alt=""></span>
@@ -91,7 +91,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="jobs.html" title="">
+                                <a href="{{ url('/jobs') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon5.png') }}"
                                             alt=""></span>

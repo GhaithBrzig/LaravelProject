@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Job;
 class JobController extends Controller
@@ -24,7 +25,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        return view('frontoffice.Jobs.create', compact('tags'));
     }
 
     /**
@@ -35,7 +37,27 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the form data
+        $request->validate([
+            'title' => 'required',
+            'skills' => 'required',
+            'price1' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        // Create a new job
+        $job = new Job;
+        $job->title = $request->title;
+        $job->user_id = "1";
+        $job->salary = $request->price1;
+        $job->location = $request->location;
+        $job->description = $request->description;
+        $job->save();
+
+        $job->tags()->attach($request->skills);
+        return redirect()->route('jobs.index')->with('success', 'Job created successfully');
+
     }
 
     /**
@@ -81,6 +103,11 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = Job::findOrFail($id);
+
+        // Delete the job
+        $job->delete();
+
+        return redirect()->route('jobs.index')->with('success', 'Job deleted successfully');
     }
 }

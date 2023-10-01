@@ -1,11 +1,32 @@
 @extends('frontOffice.frontoffice_layout')
 
 @section('frontoffice')
+
     <main>
+
+
         <div class="main-section">
+
             <div class="container">
                 <div class="main-section-data">
+                    @if(session('success'))
+                        <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
+
+                    <script>
+                        // Function to remove the alert after 3 seconds
+                        setTimeout(function() {
+                            document.getElementById('success-alert').style.display = 'none';
+                        }, 3000); // 3000 milliseconds = 3 seconds
+                    </script>
                     <div class="row" style="height: 730px">
+
                         <div class="col-lg-3">
                             <div class="filter-secs">
                                 <div class="filter-heading">
@@ -133,19 +154,31 @@
                                                         <li><a href="#" title="">Unbid</a></li>
                                                         <li><a href="#" title="">Close</a></li>
                                                         <li><a href="#" title="">Hide</a></li>
+                                                        <li>
+                                                            <a href="#" title=""
+                                                               onclick="confirmDelete('{{ $job->title }}', {{ $job->id }})">Delete</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
+
                                             <div class="epi-sec">
                                                 <ul class="descp">
-                                                    <li><img src="images/icon8.png" alt=""><span>Web developer</span></li>
-                                                    <li><img src="images/icon9.png" alt=""><span>{{ $job->location }}</span></li>
+                                                    <li>
+                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/icon8.png') }}"
+                                                             alt=""><span>Web developer</span>
+                                                    </li>
+                                                    <li>
+                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/icon9.png') }}"
+                                                             alt=""><span>{{ $job->location }}</span>
+                                                    </li>
                                                 </ul>
                                                 <ul class="bk-links">
                                                     <li><a href="#" title=""><i class="fa fa-bookmark"></i></a></li>
                                                     <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
                                                 </ul>
                                             </div>
+
                                             <div class="job_descp">
                                                 <h3>{{ $job->title }}</h3>
                                                 <ul class="job-dt">
@@ -158,11 +191,27 @@
                                                         <li><a href="#" title="{{ $tag->tagName }}">{{ $tag->tagName }}</a></li>
                                                     @endforeach
                                                 </ul>
-
                                             </div>
 
+                                            <!-- Add a hidden form for the delete action -->
+                                            <form id="delete-job-{{ $job->id }}" action="{{ route('jobs.destroy', ['job' => $job->id]) }}"
+                                                  method="POST" style="display: none;" data-job-title="{{ $job->title }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </div><!--post-bar end-->
                                     @endforeach
+
+                                    <script>
+                                        function confirmDelete(jobTitle, jobId) {
+                                            var confirmation = confirm("Are you sure you want to delete the job: " + jobTitle + "?");
+                                            if (confirmation) {
+                                                document.getElementById('delete-job-' + jobId).submit();
+                                            }
+                                        }
+                                    </script>
+
+
 
                                 </div>
                                     <div class="process-comm">
