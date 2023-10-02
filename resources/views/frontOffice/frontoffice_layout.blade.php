@@ -9,7 +9,7 @@
     <meta name="keywords" content="" />
 
     <!-- bootstrap -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
     @vite(['resources/assets/frontoffice_asset/css/animate.css'])
@@ -40,13 +40,13 @@
                     <div class="search-bar">
                         <form>
                             <input type="text" name="search" placeholder="Search...">
-                            <button type="submit"><i class="la la-search"></i></button>
+                            <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!--search-bar end-->
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html" title="">
+                                <a href="{{ url('/') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon1.png') }}"
                                             alt=""></span>
@@ -56,8 +56,6 @@
                                     <li><a href="companies.html" title="">services feed</a></li>
                                     <li><a href="company-profile.html" title="">job feed</a></li>
                                     <li><a href="company-profile.html" title="">project feed</a></li>
-                                    <li><a href="company-profile.html" title="">event feed</a></li>
-
                                 </ul>
                             </li>
                             <li>
@@ -81,14 +79,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="events.html" title="">
-                                    <span><img
-                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon2.png') }}"
-                                            alt=""></span>
-                                    events
-                                </a>
-                            </li>
-                            <li>
                                 <a href="profiles.html" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon4.png') }}"
@@ -101,7 +91,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="jobs.html" title="">
+                                <a href="{{ url('/jobs') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon5.png') }}"
                                             alt=""></span>
@@ -235,7 +225,7 @@
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
                             <a href="#" title="">John</a>
-                            <i class="la la-sort-down"></i>
+                            <i class="fa fa-sort-down"></i>
                         </div>
                         <div class="user-account-settingss" id="users">
                             <h3>Online Status</h3>
