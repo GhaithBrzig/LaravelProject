@@ -172,17 +172,17 @@
                                                     </ul>
                                                     <ul class="bk-links">
                                                         <li><a href="#" title=""><i
-                                                                    class="la la-bookmark"></i></a>
+                                                                    class="fa fa-bookmark"></i></a>
                                                         </li>
                                                         <li><a href="#" title=""><i
-                                                                    class="la la-envelope"></i></a>
+                                                                    class="fa fa-envelope"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="job_descp">
-                                                    <h3></h3>
+                                                    <h3>Web developer</h3>
                                                     <ul class="job-dt">
-                                                        <li><a href="#" title=""></a></li>
+                                                        <li><a href="#" title="">Full Time</a></li>
                                                         <li><span></span></li>
                                                     </ul>
                                                     <p>
