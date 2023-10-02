@@ -53,7 +53,7 @@ class PostController extends Controller
     public function edit( $id)
     {
         $post = Post::findOrFail($id);
-        return view('frontoffice.posts.edit',compact('post'));
+        return view('posts.edit',compact('post'));
     }
 
     public function update(Request $request,  $id)
@@ -73,7 +73,7 @@ class PostController extends Controller
        /// $post->likes =  "1";
         $post->save();
 
-        return redirect()->route('frontoffice.posts.index')->with('success','Post Has Been updated successfully');
+        return redirect()->route('posts.index')->with('success','Post Has Been updated successfully');
     }
     public function destroy($id)
     {
