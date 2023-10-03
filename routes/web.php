@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//redirection
 Route::get('/', function () {
-    return view('home');
+    return redirect('/service');
 });
 
-Route::get('/dash', function () {
+//frontoffice routes
+Route::resource('service', ServiceController::class);
+
+//backoffice routes
+Route::get('/adminpanel', function () {
     return view('backOffice/dashboard');
 });
-Route::resource('service', ServiceController::class);
