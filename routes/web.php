@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 //frontoffice routes
 Route::resource('service', ServiceController::class);
-
+ 
 //backoffice routes
 Route::get('/adminpanel', function () {
     return view('backOffice/dashboard');
