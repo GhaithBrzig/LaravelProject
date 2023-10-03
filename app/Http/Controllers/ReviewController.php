@@ -71,29 +71,53 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'comment' => 'required',        ]);
 
         $review = Review::findOrFail($id);
+        return view('frontoffice.reviews.create', compact('review'));    }
 
-      
-        $review->update($request->comment);
-        return redirect()->back();
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, $id)
+    // {
+        
+    // $request->validate([
+    //     'comment' => 'required',
+    // ]);
+
+    
+    //     $review = Review::findOrFail($id);
+
+    //     $review->comment = $request->comment;
+    //     $review->save();
+    //     return redirect()->back();
 
 
-    }
+
+    // }
+
+     /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Review  $service
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, Review $review)
+    {
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'address' => 'required',
+        // ]);
+        
+        $review->fill($request->post())->save();
+
+        return redirect()->route('reviews.index');    }
     /**
      * Remove the specified resource from storage.
      *
@@ -105,7 +129,7 @@ class ReviewController extends Controller
         $review= Review::findOrFail($id);
 
         $review->delete();
-
         return redirect()->back();
+
     }
 }
