@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-4 pd-left-none no-pd">
                             {{-- left bar --}}
-                            @include('frontOffice.feed.feedLeftSidebar')
+                            @include('frontOffice.shared.feedLeftSidebar')
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
@@ -22,23 +22,24 @@
                                     </div>
                                 </div>
                                 {{-- post link end --}}
-                        
+
                                 <div class="posts-section">
                                     @if (session()->has('success'))
-                                    <div class="alert alert-dismissable alert-success">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                {!! session()->get('success') !!}
-                                            </div>
-                                            <div>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                        <div class="alert alert-dismissable alert-success">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    {!! session()->get('success') !!}
+                                                </div>
+                                                <div>
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
-                                
+                                    @endif
+
                                     @if (count($data) > 0)
                                         @foreach ($data as $row)
                                             <div class="post-bar">
@@ -111,114 +112,22 @@
                                                     </ul>
                                                 </div>
 
-                                            </div><!--post-bar end-->
+                                            </div>
+                                            <!--post-bar end-->
                                         @endforeach
                                     @else
                                         <div class="fw-bold text-center py-5   ">
                                             nothing to display
                                         </div>
                                     @endif
-                                    <div class="top-profiles">
-                                        <div class="pf-hd">
-                                            <h3>Top Profiles</h3>
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </div>
-                                        <div class="profiles-slider">
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user1.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user2.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user3.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user1.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user2.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user3.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{ Vite::asset('resources/assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                        </div><!--profiles-slider end-->
-                                    </div><!--top-profiles end-->
-                                </div><!--posts-section end-->
+                                    {{-- top profiles --}}
+                                    @include('frontOffice.shared.topProfiles')
 
-                            </div><!--main-ws-sec end-->
+                                </div>
+                                <!--posts-section end-->
+
+                            </div>
+                            <!--main-ws-sec end-->
                         </div>
                         {{-- right bar --}}
                         <div class="col-lg-3 pd-right-none no-pd">
