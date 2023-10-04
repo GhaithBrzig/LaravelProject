@@ -121,18 +121,18 @@
                                                 </div>
                                                 <div class="epi-sec">
                                                     <ul class="descp">
-                                                        <li><img src=""{{Vite::asset('assets/frontoffice_asset/images/icon8.png') }}"
+                                                        <li><img src=""{{Vite::asset('resources/assets/frontoffice_asset/images/icon8.png') }}"
                                                                 alt=""><span>Service</span>
                                                         </li>
-                                                        <li><img src=""{{Vite::asset('assets/frontoffice_asset/images/icon9.png') }}"
+                                                        <li><img src=""{{Vite::asset('resources/assets/frontoffice_asset/images/icon9.png') }}"
                                                                 alt=""><span>Tunisia</span></li>
                                                     </ul>
                                                     <ul class="bk-links">
                                                         <li><a href="#" title=""><i
-                                                                    class="la la-bookmark"></i></a>
+                                                                    class="fa fa-bookmark"></i></a>
                                                         </li>
                                                         <li><a href="#" title=""><i
-                                                                    class="la la-envelope"></i></a>
+                                                                    class="fa fa-envelope"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -148,11 +148,11 @@
                                                     <div class="job-status-bar">
                                                         <ul class="like-com">
                                                             <li>
-                                                                <a href="#"><i class="fas fa-heart"></i> Like</a>
+                                                                <a href="#"><i class="fa fa-heart"></i> Like</a>
                                                                 <img src="images/liked-img.png" alt="">
                                                                 <span>25</span>
                                                             </li> 
-                                                            <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
+                                                            <li><a href="#" class="com"><i class="fa fa-comment-alt"></i> Comment 15</a></li>
                                                         </ul>
 												
 											        </div>
