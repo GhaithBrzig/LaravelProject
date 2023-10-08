@@ -22,18 +22,17 @@ use Illuminate\Support\Facades\Route;
 //});
 
 //redirection
-//Route::get('/', function () {
-//    return redirect('/service');
-//});
+Route::get('/', function () {
+   return redirect('/service');
+});
 //frontoffice routes
 Route::resource('service', ServiceController::class);
 Route::resource('reviews', ReviewController::class);
+Route::resource('jobs', JobController::class);
 
 //backoffice routes
 Route::get('/adminpanel', function () {
     return view('backOffice/dashboard');
 });
-Route::resource('jobs', JobController::class);
-Route::resource('/', TagController::class);
 
 
