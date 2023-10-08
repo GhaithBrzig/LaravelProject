@@ -9,8 +9,8 @@
     <meta name="keywords" content="" />
 
     <!-- bootstrap -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
 
     @vite(['resources/assets/frontoffice_asset/css/animate.css'])
     @vite(['resources/assets/frontoffice_asset/css/bootstrap.min.css'])
@@ -46,7 +46,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="{{ url('/') }}" title="">
+                                <a href="index.html" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon1.png') }}"
                                             alt=""></span>
@@ -91,7 +91,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ url('/jobs') }}" title="">
+                                <a href="jobs.html" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon5.png') }}"
                                             alt=""></span>
