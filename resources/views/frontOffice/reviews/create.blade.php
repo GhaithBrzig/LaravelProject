@@ -559,7 +559,7 @@
 
                             <button type="submit" class="btn btn-danger "
                                 onclick="return confirm('Are you sure you want to delete this review?')"><i
-                                    class="fa fa-trash"></i></i></button>
+                                    class="fa fa-trash"></i></button>
                         </form>
 
                         <button class="btn btn-secondary edit-btn" name="edit-btn" id="{{ $review->id }}"><i
