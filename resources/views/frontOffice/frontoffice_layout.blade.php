@@ -10,7 +10,7 @@
 
     <!-- bootstrap -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
+    @vite(['resources/css/app.css'])
 
     @vite(['resources/assets/frontoffice_asset/css/animate.css'])
     @vite(['resources/assets/frontoffice_asset/css/bootstrap.min.css'])
@@ -40,7 +40,7 @@
                     <div class="search-bar">
                         <form>
                             <input type="text" name="search" placeholder="Search...">
-                            <button type="submit"><i class="la la-search"></i></button>
+                            <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!--search-bar end-->
                     <nav>
@@ -225,7 +225,7 @@
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
                             <a href="#" title="">John</a>
-                            <i class="la la-sort-down"></i>
+                            <i class="fa fa-sort-down"></i>
                         </div>
                         <div class="user-account-settingss" id="users">
                             <h3>Online Status</h3>
