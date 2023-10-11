@@ -55,7 +55,9 @@
 
                         <div class="col-lg-12 text-center">
                             <button class="btn btn-primary" type="submit">Post</button>
-                            <a href="{{ url('/') }}" class="btn btn-secondary" title="Cancel">Cancel</a>
+                            <a href="{{ route('events.index') }}" class="btn btn-secondary" title="Cancel">Back to Events</a>
+
+                            {{-- <a href="{{ url('/') }}" class="btn btn-secondary" title="Cancel">Cancel</a> --}}
                         </div>
                     </form>
                 </div><!--post-event end-->

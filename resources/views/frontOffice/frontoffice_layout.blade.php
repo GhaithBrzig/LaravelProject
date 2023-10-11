@@ -41,6 +41,7 @@
                         <form>
                             <input type="text" name="search" placeholder="Search...">
                             <button type="submit"><i class="fa fa-search"></i></button>
+                            <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!--search-bar end-->
                     <nav>
@@ -225,6 +226,7 @@
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
                             <a href="#" title="">John</a>
+                            <i class="fa fa-sort-down"></i>
                             <i class="fa fa-sort-down"></i>
                         </div>
                         <div class="user-account-settingss" id="users">
