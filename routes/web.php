@@ -7,7 +7,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
-
+use App\Http\Controllers\ProjectController;
 
 
 /*
@@ -50,3 +50,4 @@ Route::resource('services', ServiceController::class);
 Route::resource('events', EventController::class);
 
 
+Route::resource('projects', ProjectController::class);
