@@ -31,8 +31,17 @@ Route::get('/', function () {
 });
 //frontoffice routes
 Route::resource('service', ServiceController::class);
+
 Route::resource('reviews', ReviewController::class);
+
 Route::resource('jobs', JobController::class);
+// Route to display a list of posts
+Route::resource('/posts', PostController::class);
+
+Route::resource('events', EventController::class);
+
+Route::resource('projects', ProjectController::class);
+
 
 //backoffice routes
 Route::get('/adminpanel', function () {
@@ -40,14 +49,3 @@ Route::get('/adminpanel', function () {
 });
 
 
-// Route to display a list of posts
-Route::resource('/posts', PostController::class);
-
-
-
-
-Route::resource('services', ServiceController::class);
-Route::resource('events', EventController::class);
-
-
-Route::resource('projects', ProjectController::class);
