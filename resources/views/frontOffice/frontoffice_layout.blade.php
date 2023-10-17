@@ -25,6 +25,15 @@
     @vite(['resources/assets/frontoffice_asset/css/responsive.css'])
 
 
+
+    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
+    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/js/script.js'])
+
 </head>
 
 <body>
@@ -265,7 +274,16 @@
                                 <li><a href="#" title="">Faqs</a></li>
                                 <li><a href="#" title="">Terms & Conditions</a></li>
                             </ul>
-                            <h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+                            <h3 class="tc">
+                                <a href="#" title="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </h3>
+
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
+
+
+
                         </div><!--user-account-settingss end-->
                     </div>
                 </div><!--header-data end-->
@@ -274,13 +292,7 @@
         @yield('frontoffice')
 
     </div>
-    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
-    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/js/script.js'])
+
 
 
 </body>
