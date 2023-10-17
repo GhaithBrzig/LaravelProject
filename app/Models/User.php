@@ -19,13 +19,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'userType',
         'profileImage',
         'coverImage',
     ];
-    
+
     public function posts()
     {
         return $this->hasMany(Post::class);
