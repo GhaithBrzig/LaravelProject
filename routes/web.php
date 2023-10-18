@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\serviceBackoffice;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\JobController;
@@ -21,41 +22,30 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', function () {
+    return redirect()->route('jobs.index');
+});
 
 Route::middleware('auth')->group(function () {
-
-
-    Route::resource('/', TagController::class);
-
-
-//frontoffice routes
+    //frontoffice routes
     Route::resource('service', ServiceController::class);
-
     Route::resource('reviews', ReviewController::class);
-
     Route::resource('jobs', JobController::class);
-// Route to display a list of posts
-    Route::resource('/posts', PostController::class);
-
+    Route::resource('posts', PostController::class);
     Route::resource('events', EventController::class);
-
     Route::resource('projects', ProjectController::class);
-
-
-//backoffice routes
+    
+    //backoffice routes
     Route::get('/adminpanel', function () {
-        return view('backOffice/dashboard');
+        return view('backOffice/shared/dashboard');
     });
+  
+    Route::resource('services', serviceBackoffice::class);
+    Route::resource('tags', TagController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

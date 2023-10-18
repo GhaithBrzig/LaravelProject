@@ -32,6 +32,7 @@
                         <i class="fa fa-dollar"></i>
                     </div>
                 </div>
+
                 <div class="col-lg-6">
                     <div class="inp-field">
                         <select name="type">
@@ -41,6 +42,16 @@
                             <option value="Contract">Contract</option>
                             <option value="Temporary">Temporary</option>
 
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="tag_ids" style="color: gray;font-size: 0.9rem" class="py-2">Select Tags:</label>
+                        <select name="tag_ids[]" id="tag_ids" class="form-control" multiple>
+                            @foreach ($tags as $id => $tagName)
+                                <option value="{{ $id }}">{{ $tagName }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

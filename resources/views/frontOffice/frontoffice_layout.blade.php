@@ -63,9 +63,9 @@
                                     Home
                                 </a>
                                 <ul>
-                                    <li><a href="companies.html" title="">services feed</a></li>
-                                    <li><a href="company-profile.html" title="">job feed</a></li>
-                                    <li><a href="company-profile.html" title="">project feed</a></li>
+                                    <li><a href="{{ url('/service') }}" title="">services feed</a></li>
+                                    <li><a href="{{ url('/jobs') }}" title="">job feed</a></li>
+                                    <li><a href="{{ url('/projects') }}" title="">project feed</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -234,7 +234,7 @@
                         <div class="user-info">
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
-                            <a href="#" title="">John</a>
+                            <a href="#" title="">{{Auth::user()->name}}</a>
                             <i class="fa fa-sort-down"></i>
                             <i class="fa fa-sort-down"></i>
                         </div>
