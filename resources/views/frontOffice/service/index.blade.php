@@ -94,22 +94,24 @@
                                                     </ul>
                                                 </div>
                                                 <div class="job_descp">
-                                                    <h3>{{ $row->serviceName }}</h3>
+                                                    <div class="d-flex">
+                                                        <h3>Service : </h3> <small class="px-1"> {{ $row->serviceName }} </small>
+
+                                                    </div>
                                                     <ul class="job-dt">
                                                         <li><a href="#" title="">{{ $row->type }}</a></li>
-                                                        <li><span>{{ $row->pricePerHour }}</span></li>
+                                                        <li><span> {{ $row->pricePerHour }} $/hr</span></li>
                                                     </ul>
+                                                    <h5 class="text-secondary">Description</h5>
                                                     <p>
-                                                        {{ $row->serviceName }}
-                                                        <a href="#" title="">view more</a>
+                                                        {{ $row->description }}
                                                     </p>
                                                     <ul class="skill-tags">
-                                                        <li><a href="#" title="">HTML</a></li>
-                                                        <li><a href="#" title="">PHP</a></li>
-                                                        <li><a href="#" title="">CSS</a></li>
-                                                        <li><a href="#" title="">Javascript</a></li>
-                                                        <li><a href="#" title="">Wordpress</a></li>
+                                                        @foreach ($row->tags as $tag)
+                                                            <li><a href="#" title="{{ $tag->tagName }}">{{ $tag->tagName }}</a></li>
+                                                        @endforeach
                                                     </ul>
+                                                    
                                                 </div>
 
                                             </div>

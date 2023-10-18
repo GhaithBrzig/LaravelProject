@@ -171,9 +171,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarLayouts" >
-                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span> <span
-                                    class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+                            <a class="nav-link menu-link" href="{{url('tags')}}" >
+                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span> 
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
