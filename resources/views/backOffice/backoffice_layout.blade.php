@@ -88,20 +88,32 @@
                             </button>
                         </div>
                         {{-- user icon --}}
-                        <div class=" header-item topbar-user px-4">
+                        <div class=" header-item topbar-user">
                             <a href="#">
-                                <span class="d-flex align-items-center">
+                                <span class="d-flex align-items-center px-3">
                                     <img class="rounded-circle header-profile-user"
                                         src="{{ Vite::asset('resources/assets/backoffice_asset/images/users/avatar-1.jpg') }}"
                                         alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna
-                                            Adame</span>
-                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                            {{ strtoupper(Auth::user()->name) }}
+                                        </span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">
+                                            {{ strtoupper(Auth::user()->usertype) }}
+                                        </span>
                                     </span>
                                 </span>
                             </a>
+                            
                         </div>
+                     
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> 
+                            <span class="align-middle" data-key="t-logout">Logout</span></a>
+                            
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
                     </div>
                 </div>
             </div>
@@ -147,13 +159,13 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{url('adminpanel')}}">
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarApps" >
-                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Apps</span>
+                            <a class="nav-link menu-link" href="{{url('services')}}" >
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Services</span>
                             </a>
 
                         </li>
