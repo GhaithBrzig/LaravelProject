@@ -9,8 +9,8 @@
     <meta name="keywords" content="" />
 
     <!-- bootstrap -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
     @vite(['resources/assets/frontoffice_asset/css/animate.css'])
     @vite(['resources/assets/frontoffice_asset/css/bootstrap.min.css'])
@@ -24,6 +24,15 @@
     @vite(['resources/assets/frontoffice_asset/css/style.css'])
     @vite(['resources/assets/frontoffice_asset/css/responsive.css'])
 
+
+
+    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
+    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/js/script.js'])
 
 </head>
 
@@ -41,21 +50,22 @@
                         <form>
                             <input type="text" name="search" placeholder="Search...">
                             <button type="submit"><i class="fa fa-search"></i></button>
+                            <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!--search-bar end-->
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html" title="">
+                                <a href="{{ url('/') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon1.png') }}"
                                             alt=""></span>
                                     Home
                                 </a>
                                 <ul>
-                                    <li><a href="companies.html" title="">services feed</a></li>
-                                    <li><a href="company-profile.html" title="">job feed</a></li>
-                                    <li><a href="company-profile.html" title="">project feed</a></li>
+                                    <li><a href="{{ url('/service') }}" title="">services feed</a></li>
+                                    <li><a href="{{ url('/jobs') }}" title="">job feed</a></li>
+                                    <li><a href="{{ url('/projects') }}" title="">project feed</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -91,7 +101,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="jobs.html" title="">
+                                <a href="{{ url('/jobs') }}" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon5.png') }}"
                                             alt=""></span>
@@ -224,7 +234,8 @@
                         <div class="user-info">
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
-                            <a href="#" title="">John</a>
+                            <a href="#" title="">{{Auth::user()->name}}</a>
+                            <i class="fa fa-sort-down"></i>
                             <i class="fa fa-sort-down"></i>
                         </div>
                         <div class="user-account-settingss" id="users">
@@ -263,7 +274,16 @@
                                 <li><a href="#" title="">Faqs</a></li>
                                 <li><a href="#" title="">Terms & Conditions</a></li>
                             </ul>
-                            <h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+                            <h3 class="tc">
+                                <a href="#" title="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </h3>
+
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
+
+
+
                         </div><!--user-account-settingss end-->
                     </div>
                 </div><!--header-data end-->
@@ -272,13 +292,7 @@
         @yield('frontoffice')
 
     </div>
-    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
-    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/js/script.js'])
+
 
 
 </body>
