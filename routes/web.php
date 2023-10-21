@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
@@ -39,6 +40,8 @@ Route::get('/adminpanel', function () {
 
 // Route to display a list of posts
 Route::resource('/posts', PostController::class);
+Route::post('/posts/{post}', [PostController::class, 'store_comment'])->name('posts.store_comment');
+Route::post('/like/{post}', [PostController::class,'like'])->name('posts.like');
 
 
 

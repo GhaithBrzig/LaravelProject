@@ -1,1 +1,6 @@
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+.comment-separator {
+    border-top: 1px solid #050505; /* Customize the appearance as needed */
+    margin: 20px 0; /* Adjust margin to control the spacing */
+}

@@ -18,14 +18,12 @@ return new class extends Migration
             $table->text('content');
             //$table->unsignedBigInteger('author'); // Foreign key referencing 'id' in 'users' table
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('post');   // Foreign key referencing 'id' in 'blog_posts' table
-            $table->date('datePosted');
-            $table->integer('likes');
+            $table->unsignedBigInteger('post_id');   // Foreign key referencing 'id' in 'blog_posts' table         
             $table->timestamps();
 
-             // Define foreign key constraints
-            // $table->foreign('author')->references('id')->on('users');
-             $table->foreign('post')->references('id')->on('posts');
+            // Define foreign key constraints
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts');
        
         });
     }
