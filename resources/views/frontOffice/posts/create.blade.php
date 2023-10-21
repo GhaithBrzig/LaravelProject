@@ -4,7 +4,7 @@
     <div class="post-project-fields">
         <h3 class="text-center mb-5 fw-bold ">Add Post </h3>
 
-        <form action="{{ route('posts.store') }}" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST" >
             @csrf
             <div class="row">
                 <div class="col-lg-12">
@@ -35,6 +35,12 @@
                
                     </div>
                 </div>
+                <!-- <div class="col-lg-12">
+                    <div class="form-group">
+                     
+                         <input class="form-control" name="photo" type="file" id="photo"> 
+                    </div>
+                </div> -->
                 <div class="col-lg-12">
                     <ul class="d-flex  justify-content-center ">
                         <li><button class="active" type="submit" value="post">Post</button></li>

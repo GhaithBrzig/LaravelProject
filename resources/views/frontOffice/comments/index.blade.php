@@ -61,11 +61,7 @@
                                                     <div class="job-status-bar">
                                                         <ul class="like-com">
                                                             <li>
-                                                            <form action="{{ route('posts.like', ['post' => $post]) }}" method="post">
-                                                                @csrf
-                                                                <button type="submit"><a href="#"><i class="fa fa-heart"></i> Like {{ $post->likes }}</a></button>
-                                                                
-                                                            </form>
+                                                                <a href="#"><i class="fas fa-heart"></i> Like</a>
                                                                 <img   src="{{Vite::asset('assets/frontoffice_asset/images/iked-img.png') }}l" alt="">
                                                                 
                                                             </li> 
@@ -102,7 +98,7 @@
                     <div class="card my-5">
 					<h5 class="card-header">Add Comment</h5>
 					<div class="card-body">
-						<form method="post" action="{{ route('posts.store_comment',['post'=> $post->id]) }}">
+						<form method="post"action="">
 						@csrf
                         
 						<textarea name="content" class="form-control"></textarea>
@@ -124,7 +120,7 @@
                                                                 <ul class="ed-options">
                                                                         
                                                                             <a >Edit </a> 
-                                                                            <!-- <a class="text-danger">Delete</a> -->
+                                                                            <a  class="text-danger">Delete</a>
                                                                         
                                                                         
                                                                 
@@ -145,10 +141,9 @@
                            
                                                                                 
                                                         </div>
-                                             <h3><hr></h3>    
-                                                             
+                                             <h3><hr></h3>                           
                             @endforeach
-                           
+                            
                         </div>
                                                 
                                     

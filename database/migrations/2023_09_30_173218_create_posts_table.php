@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('category', ['Career Advice', 'Success Stories', 'Entrepreneurship','Mentorship']);          
             $table->unsignedBigInteger('user_id');
             $table->integer('likes');
+            $table->string('photo', 300);
             $table->timestamps();
 
              // Define foreign key constraint
