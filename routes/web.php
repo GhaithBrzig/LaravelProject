@@ -16,7 +16,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ChartController;
 
 use App\Http\Controllers\PostBackoffice;
-
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/search', [PostController::class, 'search'])->name('posts.search');
     Route::resource('projects', ProjectController::class);
 
+    Route::resource('/PDF', PDFController::class);
 
     Route::resource('projects.tasks', TaskController::class);
 
