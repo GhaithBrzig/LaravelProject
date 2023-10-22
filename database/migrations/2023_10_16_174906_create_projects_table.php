@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('currentProgress')->default(0);
+            $table->decimal('budget', 10, 2)->default(0.00);
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

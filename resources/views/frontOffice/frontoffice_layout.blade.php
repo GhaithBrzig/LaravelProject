@@ -23,7 +23,7 @@
     @vite(['resources/assets/frontoffice_asset/lib/slick/slick-theme.css'])
     @vite(['resources/assets/frontoffice_asset/css/style.css'])
     @vite(['resources/assets/frontoffice_asset/css/responsive.css'])
-
+    @vite(['resources/assets/frontoffice_asset/css/timeline.css'])
 
 
     @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
@@ -83,7 +83,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="projects.html" title="">
+                                <a href="/projects" title="">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon3.png') }}"
                                             alt=""></span>

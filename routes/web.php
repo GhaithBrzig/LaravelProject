@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventBackOfficeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ChartController;
+
 use App\Http\Controllers\PostBackoffice;
 
 /*
@@ -56,6 +59,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/posts/comments/{comment}', [PostController::class, 'delete_comment'])->name('posts.delete_comment'); // Update the route URL
     Route::post('/like/{post}', [PostController::class, 'like'])->name('posts.like');
     Route::get('/posts/search', [PostController::class, 'search'])->name('posts.search');
+    Route::resource('projects', ProjectController::class);
+
+
+    Route::resource('projects.tasks', TaskController::class);
+
+    // backoffice
+    Route::get('/adminpanel/chart', [ChartController::class, 'index']);
+    Route::get('/export-pdf', [ChartController::class, 'exportPDF'])->name('export.pdf');
+
 });
 
 require __DIR__ . '/auth.php';
