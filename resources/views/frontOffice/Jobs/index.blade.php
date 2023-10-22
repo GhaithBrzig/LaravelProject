@@ -135,6 +135,16 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="main-ws-sec">
+                                <div class="post-topbar">
+                                    <div class="post-st">
+                                        <ul>
+                                            <li>
+                                                <a class="" href="{{ route('jobs.create') }}">Post a job</a>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {{-- post link end --}}
+
                                 <div class="posts-section">
                                     @foreach($jobs as $job)
                                         <div class="post-bar">
