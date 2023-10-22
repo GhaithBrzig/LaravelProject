@@ -104,13 +104,13 @@
                                     </span>
                                 </span>
                             </a>
-                            
+
                         </div>
-                     
+
                         <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> 
+                            <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle" data-key="t-logout">Logout</span></a>
-                            
+
                             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
                                 @csrf
                             </form>
@@ -179,11 +179,16 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{url('tags')}}" >
-                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span> 
+                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span>
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{url('users')}}" >
+                                <i class="ri-user-2-fill"></i> <span data-key="t-layouts">Users</span>
+                            </a>
 
+                        </li>
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
                         </li>
 

@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
+
 class TagController extends Controller
 {
     public function index()
     {
-         $data = Tag::latest()
+        $data = Tag::latest()
             ->paginate(5);
         return view('backoffice.tag.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
-
     }
 
-      /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -33,7 +33,10 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-     
+        $request->validate([
+            'tagName'          =>  'required',
+        ]);
+        
         $tag = new Tag;
 
         $tag->tagName = $request->tagName;
@@ -42,7 +45,7 @@ class TagController extends Controller
         return redirect()->route('tags.index');
     }
 
-      /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Tag  $tag
