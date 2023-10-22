@@ -33,16 +33,16 @@
                             <div class="filter-secs">
                                 <div class="filter-heading">
                                     <h3>Filters</h3>
-                                    <a href="#" title="">Clear all filters</a>
+                                    <a href="/posts" title="">Clear all filters</a>
                                 </div><!--filter-heading end-->
                                 <div class="paddy">
                                     <div class="filter-dd">
                                         <div class="filter-ttl">
                                             <h3>Search</h3>
-                                            <a href="#" title="">Clear</a>
+                                            <a href="/posts" title="">Clear</a>
                                         </div>
                                         <form>
-                                            <input type="text" name="search" placeholder="Search by title">
+                                            <input type="text" name="search" placeholder="Search ">
                                         </form>
                                     </div>
 

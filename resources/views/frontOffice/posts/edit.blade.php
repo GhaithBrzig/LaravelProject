@@ -8,7 +8,7 @@
                     <div class="post-project">
                         <h3>Edit Post</h3>
                         <div class="post-project-fields">
-                            <form id="jobEditForm" action="{{ route('posts.update', ['post' => $post->id]) }}" method="post">
+                            <form id="jobEditForm" action="{{ route('posts.update', ['post' => $post->id]) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
