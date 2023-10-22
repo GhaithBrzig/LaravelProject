@@ -10,6 +10,10 @@
     <div class="card mx-auto mt-4" style="max-width: 400px;">
         <div class="card-header bg-orange text-white">
             <h5 class="card-title text-center">{{ $event->title }}</h5>
+            <!-- Add this button to your event details view -->
+<div class="text-center mt-3">
+</div>
+
         </div>
         <div class="card-body">
             <ul class="list-group list-group-flush">
@@ -18,7 +22,7 @@
                 <li class="list-group-item"><strong>Organizer:</strong> {{ $user ? $user->name : 'N/A' }}</li>
                 <li class="list-group-item"><strong>Event Date and Time:</strong> {{ $event->eventDateTime }}</li>
                 <li class="list-group-item"><strong>Reservation Deadline:</strong> {{ $event->reservationDeadline }}</li>
-                
+
             </ul>
 
             <div class="text-center mt-3">
@@ -26,7 +30,31 @@
             </div>
         </div>
     </div>
+
+    </div>
+    <div class="widget widget-user">
+        <h3 class="title-wd">Users who made reservations:</h3>
+        <ul>
+            @foreach ($userData as $data)
+            <li>
+                <div class="usr-msg-details">
+                    <div class="usr-ms-img">
+                        <img src="images/resources/m-img1.png" alt="">
+                    </div>
+                    <div class="usr-mg-info">
+                        <h3>{{ $data['name'] }}</h3>
+                        <p>{{ $data['username'] }}</p>
+                    </div><!--usr-mg-info end-->
+                </div>
+                <span>Reservation Date: {{ $data['reservationDate'] }}</span>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+
 </div>
+
+
 
 <style>
     /* Custom button style */

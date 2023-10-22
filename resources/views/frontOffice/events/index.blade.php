@@ -93,9 +93,9 @@
                                                 <div class="usy-dt">
                                                     <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}">
                                                     <div class="usy-name">
-                                                        <h3> {{ $data['user'] ? $data['user']->name : 'N/A' }}</h3>
+                                                        <h3> {{ $data['user'] ? $data['user']->username : 'N/A' }}</h3>
 
-                                                        <span> <img src="{{Vite::asset('resources\assets\frontoffice_asset\images\clock.png') }}">3 min ago</span>
+                                                        <span> <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/clock.png') }}">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -106,7 +106,15 @@
                                                         <li><a href="{{ route('events.edit', ['event' => $data['event']->id]) }}" class="text-success">Edit event</a></li>
                                                         <li><a href="{{ route('events.show', ['event' => $data['event']->id]) }}" class="text-info">Details</a></li>
                                                         <li><a href="#" onclick="confirmDelete('{{ $data['event']->title }}', {{$data['event']->id }})" class="text-danger">Delete</a></li>
-                                                    </ul>
+                                                        <li>
+                                                            <form method="POST" action="{{ route('events.attachUserToEvent') }}">
+                                                                @csrf
+                                                                <input type="hidden" name="event_id" value="{{ $data['event']->id }}">
+
+                                                                <button type="submit">Attach User to Event</button>
+                                                            </form>
+
+                                                        </li> </ul>
                                                 </div>
 
                                             </div>
@@ -114,10 +122,10 @@
                                             <div class="epi-sec">
                                                 <ul class="descp">
                                                     <li>
-                                                        <img src="{{Vite::asset('resources\assets\frontoffice_asset\images\icon8.png') }}"><span>Web developer</span>
+                                                        <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/icon8.png') }}"><span> {{ $data['user'] ? $data['user']->name : 'N/A' }}</span>
                                                     </li>
                                                     <li>
-                                                        <img src="{{ Vite::asset('resources\assets\frontoffice_asset\images\icon9.png') }}"
+                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/icon9.png') }}"
                                                              alt=""><span>{{ $data['event']->type}}</span>
                                                     </li>
                                                 </ul>
@@ -154,7 +162,6 @@
                                             <span class="badge {{ $badgeClass }}" style="margin-top: 10px;">{{ $data['event']->type }}</span>
                                             <br>
                                             <br>
-                                            <p id="eventDescription">{{ $data['event']->description }}</p>
 
                                                 <ul class="job-dt" style="margin-top: 10px;">
                                                     <ul class="job-dt" style="margin-top: 10px; font-size: 12px;">
@@ -165,20 +172,27 @@
                                                         <br>
                                                         <li><span style="color: red;">!</span><span style="color: red;">!</span> Make sure to <strong>reserve</strong> your spot before: {{ $data['event']->reservationDeadline }} <span style="color: red;">!</span><span style="color: red;">!</span></li>
                                                     </ul>
-                                                <p style="margin-top: 10px;">
-                                                    <a href="#" title="" id="viewMoreLink" onclick="toggleDescription()">View more</a>
-                                                </p>
-                                                <p id="eventDescription" style="display: none;">{{ $data['event']->description }}</p>
-                                            </div>
+
+
+<p id="eventDescription" style="display: none;">{{ $data['event']->description }}</p>
+<!-- Add the image element with a unique ID, initially hidden -->
+<img id="eventImage" class="w-48 mr-6 mb-6" src="{{ Vite::asset('storage/app/public/' . $data['event']->eventImage) }}" alt="" style="display: none;">
+<p style="margin-top: 10px;">
+    <a href="#" title="" id="viewMoreLink" onclick="toggleDescription()">View more</a>
+</p>   </div>
 
                                             <script>
                                                 function toggleDescription() {
                                                     var description = document.getElementById('eventDescription');
+                                                    var eventImage = document.getElementById('eventImage');
+
                                                     var viewMoreLink = document.getElementById('viewMoreLink');
                                                     if (description.style.display === 'none') {
                                                         description.style.display = 'block';
+                                                        eventImage.style.display = 'block';
                                                         viewMoreLink.innerText = 'View less';
                                                     } else {
+                                                        eventImage.style.display = 'none';
                                                         description.style.display = 'none';
                                                         viewMoreLink.innerText = 'View more';
                                                     }

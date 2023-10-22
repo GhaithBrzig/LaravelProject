@@ -13,7 +13,9 @@ class Event extends Model
         'description',
         'eventDateTime',
         'reservationDeadline',
+        'eventImage',
         'isClosed',
+        'eventImage'
     ];
 
     // Specify the date format for the 'eventDateTime' attribute
@@ -27,5 +29,13 @@ class Event extends Model
     {
         return mb_strlen($value) > $this->maxLength ? mb_substr($value, 0, $this->maxLength) . '...' : $value;
     }
+
+
+    public function users()
+{
+    return $this->belongsToMany(User::class, 'reservation_event')
+        ->withPivot(['reservationDate', 'specialkey']);
+}
+
 
 }

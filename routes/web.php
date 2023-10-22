@@ -34,12 +34,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('events', EventController::class);
     Route::resource('projects', ProjectController::class);
-    
+
+    Route::post('/attachUserToEvent', [EventController::class, 'attachUserToEvent'])->name('events.attachUserToEvent');
+
     //backoffice routes
     Route::get('/adminpanel', function () {
         return view('backOffice/shared/dashboard');
     });
-  
+
     Route::resource('services', serviceBackoffice::class);
     Route::resource('tags', TagController::class);
 

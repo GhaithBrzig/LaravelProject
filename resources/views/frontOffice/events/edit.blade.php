@@ -36,17 +36,6 @@
                 </select>
             </div>
 
-            <!-- Organizer (User) Selection -->
-            <div class="form-group">
-                <label for="user_id">Organizer:</label>
-                <select name="user_id" id="user_id" class="form-control" required>
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}" {{ $user->id === $event->user_id ? 'selected' : '' }}>
-                            {{ $user->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
 
             <!-- Event Description -->
             <div class="form-group">

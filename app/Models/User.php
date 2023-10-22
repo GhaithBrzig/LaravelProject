@@ -32,6 +32,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function events()
+{
+    return $this->belongsToMany(Event::class, 'reservation_event')
+        ->withPivot(['reservationDate', 'specialkey']);
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -50,4 +57,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
