@@ -19,27 +19,22 @@ class JobController extends Controller
             });
         }
 
-
-        if ($request->has('availability')) {
-            $query->where('availability', $request->input('availability'));
+        if ($request->has('search-description')) {
+            $searchTerm = $request->input('search-description');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('tags', function($tagQuery) use ($searchTerm) {
+                        $tagQuery->where('tagName', 'like', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere('location', 'like', '%' . $searchTerm . '%');
+            });
         }
 
-        if ($request->has('job_type')) {
-            $query->where('job_type', $request->input('job_type'));
+        if ($request->has('search-location')) {
+            $query->where('location', $request->input('search-location'));
         }
 
-        if ($request->has('pay_rate')) {
-            $payRateRange = explode(',', $request->input('pay_rate'));
-            $query->whereBetween('monthly_salary', $payRateRange);
-        }
-
-        if ($request->has('experience_level')) {
-            $query->where('experience_level', $request->input('experience_level'));
-        }
-
-        if ($request->has('country')) {
-            $query->where('country', $request->input('country'));
-        }
 
         $jobs = $query->get();
 
