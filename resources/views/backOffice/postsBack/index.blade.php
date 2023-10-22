@@ -98,7 +98,8 @@
                                                             <td class="id"><a href="apps-ecommerce-order-details.html"
                                                                     class="fw-medium link-primary">{{ $post->title }}</a>
                                                             </td>
-                                                            <td class="customer_name">{{ $post->user->username }}</td>
+                                            
+                                                            
                                                             <td class="product_name">{{ $post->content }}</td>
 
                                                             <td class="status">

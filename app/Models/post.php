@@ -22,6 +22,11 @@ class Post extends Model
                 ->orWhere('category', 'like', '%' . request('search') . '%');
         }
     }
+    public function likes()
+{
+    return $this->hasMany(Like::class);
+}
+
 
     public function user()
     {

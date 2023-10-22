@@ -156,8 +156,15 @@
                                                             <li>
                                                             <form action="{{ route('posts.like', ['post' => $post]) }}" method="post">
                                                                 @csrf
-                                                                <button type="submit"><a href="#"><i class="fa fa-heart"></i> Like {{ $post->likes }}</a></button>
-                                                                
+                                                                @if($post->likedByUser)
+                                                                    <button type="submit" class="unlike-button">
+                                                                        <i class="fa fa-heart"></i> Like {{ $post->likes }}
+                                                                    </button>
+                                                                @else
+                                                                    <button type="submit" class="like-button">
+                                                                        <i class="fa fa-heart"></i>  Unlike  {{ $post->likes }}
+                                                                    </button>
+                                                                @endif
                                                             </form>
                                                            
                                                                 

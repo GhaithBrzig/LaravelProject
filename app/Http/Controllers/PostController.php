@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\like;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -11,19 +12,38 @@ class PostController extends Controller
      // Display a list of posts
     public function index()
     {
+        $user = auth()->user();
         $posts = Post::latest()->filter(request(['category','search']))->paginate(10); // Retrieve posts, latest first, and paginate them
 
+        // Check if the user has liked each post and add this information to the posts
+         $posts->each(function ($post) use ($user) {
+            $post->likedByUser = !$user->likes()->where('post_id', $post->id)->exists();
+    });
         return view('frontoffice.posts.index', compact('posts'));
     }
     
 
     public function like(Post $post)
 {
-    $oldLikes = $post->likes; // Get the old like count
-    $newLikes = $oldLikes + 1; // Increment the like count by 1
-    $post->update(['likes' => $newLikes]); // Save the updated like count
+    $user = auth()->user();
+        
+    // Check if the user has already liked the post
+    if (!$user->likes()->where('post_id', $post->id)->exists()) {
+        // Increment the post's likes count
+        $post->increment('likes');
+        // Create a like record for the user and the post
+        $like = new Like(['user_id' => $user->id, 'post_id' => $post->id]);
+        $like->save();
+    } else {
+        // User has already liked the post, so unlike it
+        // Decrement the post's likes count
+        $post->decrement('likes');
+        // Remove the like record
+        $user->likes()->where('post_id', $post->id)->delete();
+    }
 
-    return redirect()->back(); // Redirect back to the post
+
+    return redirect()->back();
 }
     public function create()
     {
