@@ -8,9 +8,36 @@ use App\Models\Job;
 
 class JobController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $jobs = Job::all();
+        $query = Job::query();
+
+        // Apply filters if provided in the request
+        if ($request->has('search-skills')) {
+            $query->whereHas('tags', function ($subQuery) use ($request) {
+                $subQuery->where('tagName', 'like', '%' . $request->input('search-skills') . '%');
+            });
+        }
+
+        if ($request->has('search-description')) {
+            $searchTerm = $request->input('search-description');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('tags', function($tagQuery) use ($searchTerm) {
+                        $tagQuery->where('tagName', 'like', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere('location', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        if ($request->has('search-location')) {
+            $query->where('location', $request->input('search-location'));
+        }
+
+
+        $jobs = $query->get();
+
         return view('frontoffice.Jobs.index', compact('jobs'));
     }
 
@@ -34,7 +61,7 @@ class JobController extends Controller
         // Create a new job
         $job = new Job;
         $job->title = $request->title;
-        $job->user_id = 1; // Assuming user_id is numeric
+        $job->user_id = auth()->user()->id;; // Assuming user_id is numeric
         $job->salary = $request->price1;
         $job->location = $request->location;
         $job->description = $request->description;

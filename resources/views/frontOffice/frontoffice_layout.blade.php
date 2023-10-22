@@ -25,6 +25,15 @@
     @vite(['resources/assets/frontoffice_asset/css/responsive.css'])
     @vite(['resources/assets/frontoffice_asset/css/timeline.css'])
 
+
+    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
+    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
+    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
+    @vite(['resources/assets/frontoffice_asset/js/script.js'])
+
 </head>
 
 <body>
@@ -54,9 +63,11 @@
                                     Home
                                 </a>
                                 <ul>
-                                    <li><a href="companies.html" title="">services feed</a></li>
-                                    <li><a href="company-profile.html" title="">job feed</a></li>
-                                    <li><a href="company-profile.html" title="">project feed</a></li>
+                                    <li><a href="{{ url('/service') }}" title="">services feed</a></li>
+                                    <li><a href="{{ url('/jobs') }}" title="">job feed</a></li>
+                                    <li><a href="{{ url('/projects') }}" title="">project feed</a></li>
+                                    <li><a href="{{ url('/events') }}" title="">events feed</a></li>
+
                                 </ul>
                             </li>
                             <li>
@@ -100,11 +111,27 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="" class="not-box-openm">
+                                <a href="{{ url('/posts') }}" title="">
+                                    <span><img
+                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/blogg.png') }}"
+                                            alt=""></span>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/posts') }}" title="">
+                                    <span><img
+                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/blogg.png') }}"
+                                            alt=""></span>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/jobs') }}" title="" class="not-box-openm">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon6.png') }}"
                                             alt=""></span>
-                                    Messages
+                                    Events
                                 </a>
                                 <div class="notification-box msg" id="message">
                                     <div class="nt-title">
@@ -225,7 +252,7 @@
                         <div class="user-info">
                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                 alt="">
-                            <a href="#" title="">John</a>
+                            <a href="#" title="">{{Auth::user()->name}}</a>
                             <i class="fa fa-sort-down"></i>
                             <i class="fa fa-sort-down"></i>
                         </div>
@@ -265,7 +292,16 @@
                                 <li><a href="#" title="">Faqs</a></li>
                                 <li><a href="#" title="">Terms & Conditions</a></li>
                             </ul>
-                            <h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+                            <h3 class="tc">
+                                <a href="#" title="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </h3>
+
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
+
+
+
                         </div><!--user-account-settingss end-->
                     </div>
                 </div><!--header-data end-->
@@ -274,13 +310,7 @@
         @yield('frontoffice')
 
     </div>
-    @vite(['resources/assets/frontoffice_asset/js/jquery.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/popper.js'])
-    @vite(['resources/assets/frontoffice_asset/js/bootstrap.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/jquery.mCustomScrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/lib/slick/slick.min.js'])
-    @vite(['resources/assets/frontoffice_asset/js/scrollbar.js'])
-    @vite(['resources/assets/frontoffice_asset/js/script.js'])
+
 
 
 </body>

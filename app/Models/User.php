@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'userType',
@@ -30,6 +31,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function likes()
+{
+    return $this->hasMany(Like::class);
+}
+
+    public function events()
+{
+    return $this->belongsToMany(Event::class, 'reservation_event')
+        ->withPivot(['reservationDate', 'specialkey']);
+}
+
 
     public function projects()
 {
@@ -55,4 +72,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
