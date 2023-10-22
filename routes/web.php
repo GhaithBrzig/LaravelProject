@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/', function () {
     return redirect()->route('jobs.index');
 });
 
+
 Route::middleware('auth')->group(function () {
     //frontoffice routes
     Route::resource('service', ServiceController::class);
@@ -38,13 +40,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
 
     //backoffice routes
-    Route::get('/adminpanel', function () {
-        return view('backOffice/shared/dashboard');
-    });
+Route::get('/adminpanel', function () {
+    return view('backOffice/shared/dashboard');
+});
 
     Route::resource('services', serviceBackoffice::class);
     Route::resource('tags', TagController::class);
     Route::resource('users', UserController::class);
+    Route::resource('review', ReviewController::class);
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -57,10 +61,10 @@ Route::resource('service', ServiceController::class);
 Route::resource('reviews', ReviewController::class);
 Route::resource('jobs', JobController::class);
 
-//backoffice routes
-Route::get('/adminpanel', function () {
-    return view('backOffice/dashboard');
-});
+// //backoffice routes
+// Route::get('/adminpanel', function () {
+//     return view('backOffice/dashboard');
+// });
 
 
 // Route to display a list of posts
