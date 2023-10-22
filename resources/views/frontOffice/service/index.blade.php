@@ -48,8 +48,14 @@
                                                         <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}"
                                                             alt="">
                                                         <div class="usy-name">
-                                                            <h3>John Doe</h3>
-
+                                                            <h3>{{ $row->user->name }}</h3>
+                                                            <span>
+                                                                @if ($row->user->usertype === 'simple user')
+                                                                    Developer
+                                                                @else
+                                                                    Company
+                                                                @endif
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="ed-opts">
@@ -81,21 +87,14 @@
                                                         <li><img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon8.png') }}"
                                                                 alt=""><span>Service</span>
                                                         </li>
-                                                        <li><img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon9.png') }}"
-                                                                alt=""><span>Tunisia</span></li>
+                                                        {{-- <li><img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon9.png') }}"
+                                                                alt=""><span>Tunisia</span></li> --}}
                                                     </ul>
-                                                    <ul class="bk-links">
-                                                        <li><a href="#" title=""><i
-                                                                    class="fa fa-bookmark"></i></a>
-                                                        </li>
-                                                        <li><a href="#" title=""><i
-                                                                    class="fa fa-envelope"></i></a>
-                                                        </li>
-                                                    </ul>
+                                                 
                                                 </div>
                                                 <div class="job_descp">
                                                     <div class="d-flex">
-                                                        <h3>Service : </h3> <small class="px-1"> {{ $row->serviceName }} </small>
+                                                        <h3>{{ $row->serviceName }} </h3> 
 
                                                     </div>
                                                     <ul class="job-dt">
@@ -108,10 +107,12 @@
                                                     </p>
                                                     <ul class="skill-tags">
                                                         @foreach ($row->tags as $tag)
-                                                            <li><a href="#" title="{{ $tag->tagName }}">{{ $tag->tagName }}</a></li>
+                                                            <li><a href="#"
+                                                                    title="{{ $tag->tagName }}">{{ $tag->tagName }}</a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
-                                                    
+
                                                 </div>
 
                                             </div>

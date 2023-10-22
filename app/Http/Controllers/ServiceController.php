@@ -31,9 +31,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-
         $tags = Tag::pluck('tagName', 'id'); // Retrieve tag names and IDs
-        return view('frontoffice.service.create', compact('tags'));    }
+        return view('frontoffice.service.create', compact('tags'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,13 +50,15 @@ class ServiceController extends Controller
             'type'         =>  'required'
         ]);
 
-
         $service = new Service;
 
         $service->serviceName = $request->serviceName;
         $service->pricePerHour = $request->pricePerHour;
         $service->description = $request->description;
         $service->type = $request->type;
+
+        // Associate the service with the currently authenticated user
+        $service->user()->associate(auth()->user());
 
         $service->save();
 
@@ -88,11 +90,12 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        // ]);
+        $request->validate([
+            'serviceName'          =>  'required',
+            'pricePerHour'          =>  'required',
+            'description'          =>  'required',
+            'type'         =>  'required'
+        ]);
 
         $service->fill($request->post())->save();
 
