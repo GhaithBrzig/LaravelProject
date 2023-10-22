@@ -37,9 +37,14 @@ class Project extends Model
     }
 
     // Define relationships
-    public function client()
-    {
-        return $this->belongsTo(User::class, 'client_id');
-    }
+    public function tasks()
+{
+    return $this->hasMany(Task::class);
+}
+
+public function client()
+{
+    return $this->belongsTo(User::class, 'client_id');
+}
 
 }

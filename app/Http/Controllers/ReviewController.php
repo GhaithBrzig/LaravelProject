@@ -16,7 +16,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('frontoffice.reviews.index',compact('reviews'));
+        return view('backoffice.review.index',compact('reviews'));
     }
 
     /**
@@ -46,10 +46,14 @@ class ReviewController extends Controller
         $review = new Review();
         $review->rating = $request->rating;
         $review->comment = $request->comment;
-        $review->reviewer=1;
+        $user_id = auth()->user()->id;
+        $review->reviewer= $user_id;
+
+
+        ;
         $review->reviewedUser=2;
         $review->save();
-        return redirect()->back();
+        return view('frontoffice.reviews.create', compact('reviews'));
 
     }
     /**
@@ -84,12 +88,12 @@ class ReviewController extends Controller
     //  */
     // public function update(Request $request, $id)
     // {
-        
+
     // $request->validate([
     //     'comment' => 'required',
     // ]);
 
-    
+
     //     $review = Review::findOrFail($id);
 
     //     $review->comment = $request->comment;
@@ -114,10 +118,10 @@ class ReviewController extends Controller
         //     'email' => 'required',
         //     'address' => 'required',
         // ]);
-        
+
         $review->fill($request->post())->save();
 
-        return redirect()->route('reviews.index');    }
+        return redirect()->route('reviews.create');    }
     /**
      * Remove the specified resource from storage.
      *

@@ -28,7 +28,7 @@
 							<div class="company_profile_info">
 								<div class="company-up-info">
 									<img src="images/resources/pf-icon1.png" alt="">
-									<h3>John Doe</h3>
+									<h3></h3>
 									<h4>Graphic Designer</h4>
 									<ul>
 										<li><a href="#" title="" class="follow">Follow</a></li>

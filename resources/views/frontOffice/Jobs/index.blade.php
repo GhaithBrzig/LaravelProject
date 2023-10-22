@@ -25,15 +25,24 @@
                             document.getElementById('success-alert').style.display = 'none';
                         }, 3000); // 3000 milliseconds = 3 seconds
                     </script>
-                    <div class="row" style="height: 730px">
+                    <div class="row" style="height: 500px">
 
                         <div class="col-lg-3">
                             <div class="filter-secs">
                                 <div class="filter-heading">
                                     <h3>Filters</h3>
-                                    <a href="#" title="">Clear all filters</a>
+                                    <a href="{{ url('/jobs') }}" title="">Clear all filters</a>
                                 </div><!--filter-heading end-->
                                 <div class="paddy">
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>Description</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <form>
+                                            <input type="text" name="search-description" placeholder="Search ...">
+                                        </form>
+                                    </div>
                                     <div class="filter-dd">
                                         <div class="filter-ttl">
                                             <h3>Skills</h3>
@@ -41,50 +50,6 @@
                                         </div>
                                         <form>
                                             <input type="text" name="search-skills" placeholder="Search skills">
-                                        </form>
-                                    </div>
-                                    <div class="filter-dd">
-                                        <div class="filter-ttl">
-                                            <h3>Availabilty</h3>
-                                            <a href="#" title="">Clear</a>
-                                        </div>
-                                        <ul class="avail-checks">
-                                            <li>
-                                                <input type="radio" name="cc" id="c1">
-                                                <label for="c1">
-                                                    <span></span>
-                                                </label>
-                                                <small>Hourly</small>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="cc" id="c2">
-                                                <label for="c2">
-                                                    <span></span>
-                                                </label>
-                                                <small>Part Time</small>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="cc" id="c3">
-                                                <label for="c3">
-                                                    <span></span>
-                                                </label>
-                                                <small>Full Time</small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="filter-dd">
-                                        <div class="filter-ttl">
-                                            <h3>Job Type</h3>
-                                            <a href="#" title="">Clear</a>
-                                        </div>
-                                        <form class="job-tp">
-                                            <select>
-                                                <option>Select a job type</option>
-                                                <option>Select a job type</option>
-                                                <option>Select a job type</option>
-                                                <option>Select a job type</option>
-                                            </select>
-                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                         </form>
                                     </div>
                                     <div class="filter-dd">
@@ -102,34 +67,22 @@
                                     </div>
                                     <div class="filter-dd">
                                         <div class="filter-ttl">
-                                            <h3>Experience Level</h3>
-                                            <a href="#" title="">Clear</a>
-                                        </div>
-                                        <form class="job-tp">
-                                            <select>
-                                                <option>Select a experience level</option>
-                                                <option>3 years</option>
-                                                <option>4 years</option>
-                                                <option>5 years</option>
-                                            </select>
-                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                        </form>
-                                    </div>
-                                    <div class="filter-dd">
-                                        <div class="filter-ttl">
                                             <h3>Countries</h3>
                                             <a href="#" title="">Clear</a>
                                         </div>
-                                        <form class="job-tp">
-                                            <select>
-                                                <option>Select a country</option>
-                                                <option>United Kingdom</option>
-                                                <option>United States</option>
-                                                <option>Russia</option>
+                                        <form class="job-tp" method="GET" action="{{ route('jobs.index') }}" id="location-filter-form"> <!-- Assuming the route name is 'jobs.index' -->
+                                            <select name="search-location" onchange="document.getElementById('location-filter-form').submit();"> <!-- Added 'onchange' event to trigger form submission -->
+                                                <option value="">Select a location</option>
+                                                <option value="Tunis">Tunis</option>
+                                                <option value="Bizerte">Bizerte</option>
+                                                <option value="Aryanah">Aryanah</option>
+                                                <option value="Sousse">Sousse</option>
                                             </select>
                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                         </form>
                                     </div>
+
+
                                 </div>
                             </div><!--filter-secs end-->
                         </div>
@@ -226,121 +179,121 @@
 
 
                                 </div>
-                                    <div class="process-comm">
-                                        <div class="spinner">
-                                            <div class="bounce1"></div>
-                                            <div class="bounce2"></div>
-                                            <div class="bounce3"></div>
-                                        </div>
-                                    </div><!--process-comm end-->
-                                </div><!--posts-section end-->
-                            </div><!--main-ws-sec end-->
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="right-sidebar">
-                                <div class="widget widget-about">
-                                    <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/wd-logo.png') }}"
-                                         alt="">
-                                    <h3>Track Time on Workwise</h3>
-                                    <span>Pay only for the Hours worked</span>
-                                    <div class="sign_link">
-                                        <h3><a href="sign-in.html" title="">Sign up</a></h3>
-                                        <a href="#" title="">Learn More</a>
+                                <div class="process-comm">
+                                    <div class="spinner">
+                                        <div class="bounce1"></div>
+                                        <div class="bounce2"></div>
+                                        <div class="bounce3"></div>
                                     </div>
-                                </div><!--widget-about end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Top Jobs</h3>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior PHP Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Developer Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Most Viewed This Week</h3>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                            </div><!--right-sidebar end-->
-                        </div>
+                                </div><!--process-comm end-->
+                            </div><!--posts-section end-->
+                        </div><!--main-ws-sec end-->
                     </div>
-                </div><!-- main-section-data end-->
-            </div>
+                    <div class="col-lg-3">
+                        <div class="right-sidebar">
+                            <div class="widget widget-about">
+                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/wd-logo.png') }}"
+                                     alt="">
+                                <h3>Track Time on Workwise</h3>
+                                <span>Pay only for the Hours worked</span>
+                                <div class="sign_link">
+                                    <h3><a href="sign-in.html" title="">Sign up</a></h3>
+                                    <a href="#" title="">Learn More</a>
+                                </div>
+                            </div><!--widget-about end-->
+                            <div class="widget widget-jobs">
+                                <div class="sd-title">
+                                    <h3>Top Jobs</h3>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </div>
+                                <div class="jobs-list">
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior Product Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior UI / UX Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Junior Seo Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior PHP Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior Developer Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                </div><!--jobs-list end-->
+                            </div><!--widget-jobs end-->
+                            <div class="widget widget-jobs">
+                                <div class="sd-title">
+                                    <h3>Most Viewed This Week</h3>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </div>
+                                <div class="jobs-list">
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior Product Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Senior UI / UX Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                    <div class="job-info">
+                                        <div class="job-details">
+                                            <h3>Junior Seo Designer</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                        </div>
+                                        <div class="hr-rate">
+                                            <span>$25/hr</span>
+                                        </div>
+                                    </div><!--job-info end-->
+                                </div><!--jobs-list end-->
+                            </div><!--widget-jobs end-->
+                        </div><!--right-sidebar end-->
+                    </div>
+                </div>
+            </div><!-- main-section-data end-->
+        </div>
         </div>
     </main>
 

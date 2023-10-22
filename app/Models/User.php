@@ -41,6 +41,19 @@ class User extends Authenticatable
     return $this->hasMany(Like::class);
 }
 
+    public function events()
+{
+    return $this->belongsToMany(Event::class, 'reservation_event')
+        ->withPivot(['reservationDate', 'specialkey']);
+}
+
+
+    public function projects()
+{
+    return $this->hasMany(Project::class, 'client_id');
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -59,4 +72,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

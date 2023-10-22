@@ -105,11 +105,15 @@
                                 </span>
                             </a>
 
+
                         </div>
+
 
                         <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                            <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle" data-key="t-logout">Logout</span></a>
+
 
                             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
                                 @csrf
@@ -183,101 +187,38 @@
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{url('eventsBack')}}" >
+                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Events</span>
+                            </a>
+
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{url('review')}}" >
+                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Reviews</span>
+                            </a>
+
+                        </li> <!-- end Dashboard Menu -->
+
+
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{url('users')}}" >
-                                <i class="ri-user-2-fill"></i> <span data-key="t-layouts">Users</span>
-                            </a>
-
-                        </li>
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarAuth">
                                 <i class="ri-account-circle-line"></i> <span
-                                    data-key="t-authentication">Authentication</span>
+                                    data-key="t-authentication">Users</span>
                             </a>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarPages">
-                                <i class="ri-pages-line"></i> <span data-key="t-pages">Pages</span>
+                            <a class="nav-link menu-link" href="/adminpanel/chart">
+                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Projects Chart</span>
                             </a>
 
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarLanding" >
-                                <i class="ri-rocket-line"></i> <span data-key="t-landing">Landing</span>
-                            </a>
 
-                        </li>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span
-                                data-key="t-components">Components</span></li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarUI">
-                                <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-base-ui">Base UI</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarAdvanceUI" >
-                                <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Advance UI</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
-                                <i class="ri-honour-line"></i> <span data-key="t-widgets">Widgets</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarForms" >
-                                <i class="ri-file-list-3-line"></i> <span data-key="t-forms">Forms</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarTables" >
-                                <i class="ri-layout-grid-line"></i> <span data-key="t-tables">Tables</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarCharts">
-                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Charts</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarIcons" >
-                                <i class="ri-compasses-2-line"></i> <span data-key="t-icons">Icons</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarMaps" >
-                                <i class="ri-map-pin-line"></i> <span data-key="t-maps">Maps</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarMultilevel">
-                                <i class="ri-share-line"></i> <span data-key="t-multi-level">Multi Level</span>
-                            </a>
-
-                        </li>
 
                     </ul>
                 </div>

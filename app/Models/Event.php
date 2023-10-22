@@ -13,8 +13,21 @@ class Event extends Model
         'description',
         'eventDateTime',
         'reservationDeadline',
+        'eventImage',
         'isClosed',
+        'eventImage'
     ];
+    public function scopeFilter($query, array $filters) {
+        if($filters['type'] ?? false) {
+            $query->where('type', 'like', '%' . request('type') . '%');
+        }
+
+        if($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%')
+                ->orWhere('type', 'like', '%' . request('search') . '%');
+        }
+    }
 
     // Specify the date format for the 'eventDateTime' attribute
     protected $dates = ['eventDateTime'];
@@ -27,5 +40,13 @@ class Event extends Model
     {
         return mb_strlen($value) > $this->maxLength ? mb_substr($value, 0, $this->maxLength) . '...' : $value;
     }
+
+
+    public function users()
+{
+    return $this->belongsToMany(User::class, 'reservation_event')
+        ->withPivot(['reservationDate', 'specialkey']);
+}
+
 
 }
