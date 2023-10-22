@@ -12,6 +12,16 @@
                             <div class="modal-header bg-light p-3">
                                 <h5 class="modal-title" id="exampleModalLabel">Create</h5>
                             </div>
+                            {{-- error message --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form action="{{ route('tags.store') }}" method="POST">
                                 @csrf
                                 <div class="modal-body">
@@ -24,7 +34,7 @@
                                 <div class="modal-footer">
                                     <div class="hstack gap-2 justify-content-end">
 
-                                        <button type="submit" value="post" class="btn btn-success" >Add tag</button>
+                                        <button type="submit" value="post" class="btn btn-success">Add tag</button>
                                         <a href="{{ route('tags.index') }}" class="btn btn-light">back</a>
                                     </div>
                                 </div>

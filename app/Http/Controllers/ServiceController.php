@@ -88,11 +88,13 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        // ]);
+        $request->validate([
+            'serviceName'          =>  'required',
+            'pricePerHour'          =>  'required',
+            'description'          =>  'required',
+            'type'         =>  'required'
+        ]);
+
 
         $service->fill($request->post())->save();
 
