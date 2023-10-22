@@ -37,8 +37,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'category' => 'required|string',
-            
+            'category' => 'required|string|in:Career Advice,Success Stories,Mentorship,Entrepreneurship',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif', // Adjust file type and size as needed
         ]); 
         $user_id = auth()->user()->id;
        
@@ -112,8 +112,9 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|string|in:Career Advice,Success Stories,Mentorship,Entrepreneurship',
             'content' => 'required',
-            'category' => 'required|string',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif', 
             
         ]);
         $post = Post::findOrFail($id);
@@ -137,28 +138,20 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success','Post has been deleted successfully');
     }
 
+   
+
     public function delete_comment($comment)
     {
         // Find and delete the comment
         $deletedComment = Comment::find($comment);
-        if ($comment) {
-            // Access the associated post's ID through the relationship
-            $postId = $comment->post->id;
-           
+
+        if (!$deletedComment) {
+            return redirect()->back()->with('error', 'Comment not found.');
         }
+
         $deletedComment->delete();
 
-        // Retrieve the post
-        $post = Post::findOrFail($postId);
-
-        // Retrieve the remaining comments for the post
-        $comments = Comment::where('post_id', $postId)
-            ->with('user') // Eager loading the associated user
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-            return redirect()->route('posts.show', ['post' => $post,'comments' => $comment])
-            ->with('success', 'Comment deleted successfully');
+        return redirect()->back()->with('success', 'Comment deleted successfully.');
     }
 
 

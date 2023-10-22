@@ -171,6 +171,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{url('postsBack')}}" >
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Posts</span>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link menu-link" href="{{url('tags')}}" >
                                 <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span> 
                             </a>

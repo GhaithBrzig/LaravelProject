@@ -106,11 +106,11 @@
                     <div class="card my-5">
 					<h5 class="card-header">Add Comment</h5>
 					<div class="card-body">
-						<form method="post" action="{{ route('posts.store_comment',['post'=> $post->id]) }}">
-						@csrf
-                        
-						<textarea name="content" class="form-control"></textarea>
-						<input type="submit" class="btn btn-dark mt-2" />
+                    <form method="post" action="{{ route('posts.store_comment', ['post' => $post->id]) }}">
+                        @csrf
+                        <textarea name="content" class="form-control"></textarea>
+                        <input type="submit" class="btn btn-dark mt-2" value="Add Comment">
+                    </form>
 					</div>
 				</div>
                 <!-- Fetch Comments -->
@@ -126,9 +126,10 @@
                                                                 <a href="#" title="" class="ed-opts-open"><i
                                                                         class="fa fa-ellipsis-v"></i></a>
                                                                 <ul class="ed-options">
-                                                                        
-                                                                            <a >Edit </a> 
-                                                                            <!-- <a class="text-danger">Delete</a> -->
+                                                                
+                                                                          
+                                                                <li><a onclick="confirmDeletecomment({{  $comment->id }})" class="text-danger"  href="#" title="">Delete</a></li>
+                                                               
                                                                         
                                                                         
                                                                 
@@ -140,7 +141,7 @@
                                                                  
                                             <!-- Display comment content, user, and date -->
                                             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"   alt="">     
-                                            
+                                           
                                             <h3> User : {{ $comment->user->username }}</h3>
                                             <br>
                                                 <h4>{{ $comment->content }}</h4>
@@ -152,23 +153,24 @@
                            
                                                                                 
                                                         </div>
-                                             <h3><hr></h3>    
+                                             <h3><hr></h3>   
+                                             <form id="delete-comment-{{ $comment->id }}" action="{{ route('posts.delete_comment', ['comment' => $comment->id]) }}"
+                                                  method="POST" style="display: none;" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                            </form> 
                                                              
                             @endforeach
-                            <form id="delete-post-{{ $post->id }}" action="{{ route('posts.destroy', ['post' => $post->id]) }}"
-                                                  method="POST" style="display: none;" data-job-title="{{ $post->title }}">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            
                                         </div><!--post-bar end-->
 
-                                                                    <script>
-                                        function confirmDelete(Title, Id) {
-                                            var confirmation = confirm("Are you sure you want to delete this post: " + Title + "?");
-                                            if (confirmation) {
-                                                document.getElementById('delete-post-' + Id).submit();
-                                            }
-                                        }
+                                    <script>
+                                                function confirmDeletecomment(Id) {
+                                                    var confirmation = confirm("Are you sure you want to delete this comment :"+ Id+"?");
+                                                    if (confirmation) {
+                                                        document.getElementById('delete-comment-' + Id).submit();
+                                                    }
+                                                }
                                     </script>
                            
                         </div>
