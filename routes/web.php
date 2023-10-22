@@ -8,6 +8,8 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ChartController;
 
 
 /*
@@ -51,3 +53,21 @@ Route::resource('events', EventController::class);
 
 
 Route::resource('projects', ProjectController::class);
+
+
+Route::resource('projects.tasks', TaskController::class);
+
+// backoffice
+Route::get('/adminpanel/chart', [ChartController::class, 'index']);
+Route::get('/export-pdf', [ChartController::class, 'exportPDF'])->name('export.pdf');
+
+
+
+
+
+
+
+
+
+
+

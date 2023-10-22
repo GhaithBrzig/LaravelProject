@@ -25,11 +25,17 @@ class User extends Authenticatable
         'profileImage',
         'coverImage',
     ];
-    
+
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
+
+    public function projects()
+{
+    return $this->hasMany(Project::class, 'client_id');
+}
+
 
     /**
      * The attributes that should be hidden for serialization.

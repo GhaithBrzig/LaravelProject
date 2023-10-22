@@ -229,8 +229,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarCharts">
-                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Charts</span>
+                            <a class="nav-link menu-link" href="/adminpanel/chart">
+                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Projects Chart</span>
                             </a>
 
                         </li>
