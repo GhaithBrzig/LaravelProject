@@ -135,31 +135,15 @@ public function store(Request $request)
 
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
-    {   $event = Event::findOrFail($id);
-
-        $request->validate([
-            'title' => 'required',
-            'type' => 'required|in:Webinar,Workshop,Fair,Competition,Seminar,Program,Virtual chat',
-            'description' => 'required',
-            'eventDateTime' => 'required',
-            'reservationDeadline' => 'required',
-            'eventImage' => 'required',
-            'numberParticipants' => 'required',
-        ]);
-
-        // Get the current user's ID
-        $user_id = auth()->user()->id;
+    {
+        $event = Event::findOrFail($id);
         $event->fill($request->post())->save();
 
-        return redirect()->route('events.index')->with('success', 'Event has been updated successfully');
+
+
+        return redirect()->route('events.index')->with('success', 'Event has been created successfully.');
+
     }
 
     /**
@@ -169,11 +153,14 @@ public function store(Request $request)
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   $event=Event::findOrFail($id);
-        $event->users()->detach();
+    {
+        $event = Event::findOrFail($id);
+        $event->users()->detach(); // Detach all associated users
         $event->delete();
+
         return redirect()->route('events.index')->with('success', 'Event has been deleted successfully');
     }
+
 
 
 

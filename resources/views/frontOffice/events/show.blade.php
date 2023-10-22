@@ -22,6 +22,7 @@
                 <li class="list-group-item"><strong>Organizer:</strong> {{ $user ? $user->name : 'N/A' }}</li>
                 <li class="list-group-item"><strong>Event Date and Time:</strong> {{ $event->eventDateTime }}</li>
                 <li class="list-group-item"><strong>Reservation Deadline:</strong> {{ $event->reservationDeadline }}</li>
+                <li class="list-group-item">     <img id="eventImage" class="w-48 mr-6 mb-6" src="{{ Vite::asset('storage/app/public/' . $event->eventImage) }}" alt="" ></li>
 
             </ul>
 

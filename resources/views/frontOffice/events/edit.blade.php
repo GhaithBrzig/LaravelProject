@@ -8,7 +8,7 @@
                 <div class="post-project">
         <h1 style="font-size: 2em; margin-top: 20px;"><center>Edit Event<center></h1>
 
-        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}">
+        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}" id="jobEditForm">
             @csrf
             @method('PUT')
 

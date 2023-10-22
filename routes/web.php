@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/attachUserToEvent', [EventController::class, 'attachUserToEvent'])->name('events.attachUserToEvent');
 
+
     //backoffice routes
     Route::get('/adminpanel', function () {
         return view('backOffice/shared/dashboard');
