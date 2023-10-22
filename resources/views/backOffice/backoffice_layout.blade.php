@@ -210,12 +210,33 @@
 
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="/adminpanel/chart">
+                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Projects Chart</span>
+                            </a>
 
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarIcons" >
+                                <i class="ri-compasses-2-line"></i> <span data-key="t-icons">Icons</span>
+                            </a>
 
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarMaps" >
+                                <i class="ri-map-pin-line"></i> <span data-key="t-maps">Maps</span>
+                            </a>
 
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarMultilevel">
+                                <i class="ri-share-line"></i> <span data-key="t-multi-level">Multi Level</span>
+                            </a>
+
+                        </li>
 
                     </ul>
                 </div>

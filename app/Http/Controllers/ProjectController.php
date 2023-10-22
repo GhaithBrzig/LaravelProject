@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\User;
+use App\Http\Requests\ProjectRequest;
+
 class ProjectController extends Controller
 {
      /**
@@ -35,12 +37,12 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $users = User::all();
+{
+    // Fetch a list of users who can be assigned as project owners
+    $users = User::all();
 
-        return view('frontoffice.projects.create', compact('users'));
-    }
-
+    return view('frontoffice.projects.create', compact('users'));
+}
     /**
      * Store a newly created resource in storage.
      *
@@ -50,12 +52,25 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         // Validate the form data
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
             'client_id' => 'required|integer',
+            'description' => 'required|string|min:15',
+            'start_date' => 'required|date|after_or_equal:today', // Start date should be today or later
+            'end_date' => 'required|date|after:start_date', // End date must be after the start date
+            'budget' => 'required|numeric',
+            'currentProgress' => 'required|numeric|between:1,10',
+        ], [
+            'name.required' => 'The project name is required.',
+            'client_id.required' => 'Please select an owner for the project.',
+            'description.required' => 'A project description is required and should be at least 15 characters.',
+            'start_date.required' => 'Please select a start date.',
+            'start_date.after_or_equal' => 'The start date should be today or later.',
+            'end_date.required' => 'Please select an end date.',
+            'end_date.after' => 'The end date must be after the start date.',
+            'budget.required' => 'Please specify the project budget.',
+            'currentProgress.required' => 'Please specify the current progress of the project.',
+            'currentProgress.between' => 'The current progress should be between 1 and 10.',
         ]);
 
         // Create a new project
@@ -63,6 +78,10 @@ class ProjectController extends Controller
 
         return redirect()->route('projects.index')->with('success', 'Project has been created successfully.');
     }
+
+
+
+
 
     /**
      * Display the specified resource.
@@ -103,12 +122,25 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         // Validate the form data
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
             'client_id' => 'required|integer',
+            'description' => 'required|string|min:15',
+            'start_date' => 'required|date|after_or_equal:today', // Start date should be today or later
+            'end_date' => 'required|date|after:start_date', // End date must be after the start date
+            'budget' => 'required|numeric',
+            'currentProgress' => 'required|numeric|between:1,10',
+        ], [
+            'name.required' => 'The project name is required.',
+            'client_id.required' => 'Please select an owner for the project.',
+            'description.required' => 'A project description is required and should be at least 15 characters.',
+            'start_date.required' => 'Please select a start date.',
+            'start_date.after_or_equal' => 'The start date should be today or later.',
+            'end_date.required' => 'Please select an end date.',
+            'end_date.after' => 'The end date must be after the start date.',
+            'budget.required' => 'Please specify the project budget.',
+            'currentProgress.required' => 'Please specify the current progress of the project.',
+            'currentProgress.between' => 'The current progress should be between 1 and 10.',
         ]);
 
         // Find the project by ID
@@ -128,10 +160,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+        var_dump($id);
         $project = Project::findOrFail($id);
-
+        logger('Deleting project: ' . $project->name);
         // Delete the project
         $project->delete();
+        logger('Project deleted successfully');
 
         return redirect()->route('projects.index')->with('success', 'Project has been deleted successfully.');
     }

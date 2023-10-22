@@ -48,6 +48,12 @@ class User extends Authenticatable
 }
 
 
+    public function projects()
+{
+    return $this->hasMany(Project::class, 'client_id');
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
