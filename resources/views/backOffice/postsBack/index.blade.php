@@ -90,7 +90,7 @@
 
 
                                                             <td>
-                                                                <form action="{{ route('posts.destroy', $post->id) }}"
+                                                                <form action="{{ route('postsBack.destroy', $post->id) }}"
                                                                     method="Post">
                                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                                         @csrf
