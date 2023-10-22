@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\User;
+use App\Rules\ReservationDeadlineBeforeEvent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        $events = Event::all();
+
+        $events = Event::latest()->filter(request(['type','search']))->paginate(10);
         $eventData = [];
 
         foreach ($events as $event) {
@@ -43,28 +41,45 @@ class EventController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'type' => 'required|in:Webinar,Workshop,Fair,Competition,Seminar,Program,Virtual chat',
-            'user_id' => 'required|integer',
-            'description' => 'required',
-            'eventDateTime' => 'required',
-            'reservationDeadline' => 'required',
-        ]);
+/**
+ * Store a newly created resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
+public function store(Request $request)
+{
+    // Validate the incoming request data
+    $request->validate([
+        'title' => 'required',
+        'type' => 'required|in:Webinar,Workshop,Fair,Competition,Seminar,Program,Virtual chat',
+        'description' => 'required',
+        'eventDateTime' => 'required|date',
+        'reservationDeadline' => [
+            'required',
+            'date',
+            new ReservationDeadlineBeforeEvent,
+        ],        'eventImage' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'numberParticipants' => 'nullable|numeric',
+    ]);
 
-        Event::create($request->all());
+    // Get the current user's ID
+    $user_id = auth()->user()->id;
 
-        return redirect()->route('events.index')->with('success', 'Event has been created successfully.');
+    // Create a new event with the user_id set to the current user's ID
+    $eventData = $request->only(['title', 'type', 'description', 'eventDateTime', 'reservationDeadline', 'numberParticipants']);
+    $eventData['user_id'] = $user_id;
+
+    // Check if an eventImage file was uploaded
+    if ($request->hasFile('eventImage')) {
+        $eventData['eventImage'] = $request->file('eventImage')->store('events', 'public');
     }
 
+    // Create the event with the merged data
+    Event::create($eventData);
+
+    return redirect()->route('events.index')->with('success', 'Event has been created successfully.');
+}
 
     /**
      * Display the specified resource.
@@ -73,10 +88,36 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   $event= Event::findOrFail($id);
-        $user=User::findOrFail($event->user_id);
-        return view('frontoffice.Events.show', compact('event','user'));
+    {
+        $event = Event::findOrFail($id);
+
+        $user_id = auth()->user()->id;
+        $user = User::findOrFail($user_id);
+
+        $userData = [];
+
+        if ($event) {
+            // Get the users for the event with pivot data
+            $users = $event->users()->withPivot('reservationDate', 'specialkey')->get();
+
+            // Collect the user data in an array
+            foreach ($users as $u) {
+                $reservationDate = $u->pivot->reservationDate;
+                $specialkey = $u->pivot->specialkey;
+                $userData[] = [
+                    'user_id' => $u->id,
+                    'name' => $u->name,
+                    'username' => $u->username,
+                    'profileImage' => $u->profileImage, // Replace with the actual attribute name for the profile image
+                    'reservationDate' => $reservationDate,
+                    'specialkey' => $specialkey,
+                ];
+            }
+        }
+
+        return view('frontoffice.Events.show', compact('event', 'user', 'userData'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -96,28 +137,15 @@ class EventController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
-    {   $event = Event::findOrFail($id);
-
-        $request->validate([
-            'title' => 'required',
-            'type' => 'required|in:Webinar,Workshop,Fair,Competition,Seminar,Program,Virtual chat',
-            'user_id' => 'required',
-            'description' => 'required',
-            'eventDateTime' => 'required',
-            'reservationDeadline' => 'required',
-        ]);
-
+    {
+        $event = Event::findOrFail($id);
         $event->fill($request->post())->save();
 
-        return redirect()->route('events.index')->with('success', 'Event has been updated successfully');
+
+
+        return redirect()->route('events.index')->with('success', 'Event has been created successfully.');
+
     }
 
     /**
@@ -127,8 +155,77 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   $event=Event::findOrFail($id);
+    {
+        $event = Event::findOrFail($id);
+        $event->users()->detach(); // Detach all associated users
         $event->delete();
+
         return redirect()->route('events.index')->with('success', 'Event has been deleted successfully');
+    }
+
+
+
+
+    public function attachUserToEvent(Request $request)
+    {
+        $user = auth()->user(); // Get the current authenticated user
+        $eventId = $request->input('event_id'); // Retrieve the event ID from the request
+
+        $event = Event::find($eventId); // Fetch the event dynamically
+
+        if (!$event) {
+            return redirect()->back()->with('error', 'Event not found.');
+        }
+
+        $user->events()->attach($event, [
+            'reservationDate' => now(),
+            'specialkey' => 'abc111111',
+        ]);
+
+        return redirect()->back()->with('success', 'User attached to event successfully.');
+    }
+
+
+
+    public function detachUserFromEvent(Request $request)
+    {
+        $user = User::find(1); // You can change this to fetch the user dynamically
+        $event = Event::find(1); // You can change this to fetch the event dynamically
+        $user->events()->detach($event);
+
+        return redirect()->back()->with('success', 'User detached from event successfully.');
+    }
+
+
+    public function syncUserEvents(Request $request)
+    {
+        $user = User::find(1); // You can change this to fetch the user dynamically
+        $eventsData = [
+            1 => ['reservationDate' => now(), 'specialkey' => 'abc'],
+            2 => ['reservationDate' => now(), 'specialkey' => 'def'],
+        ];
+        $user->events()->sync($eventsData);
+
+        return redirect()->back()->with('success', 'User events synced successfully.');
+    }
+
+
+
+
+    public function eventslist(Request $request)
+    {
+
+        $events = Event::latest()->filter(request(['type','search']))->paginate(10);
+        $eventData = [];
+
+        foreach ($events as $event) {
+            $user = User::find($event->user_id);
+            $eventData[] = [
+                'event' => $event,
+                'user' => $user,
+            ];
+        }
+
+        return view('frontOffice.events.events', compact('eventData'));
     }
 }

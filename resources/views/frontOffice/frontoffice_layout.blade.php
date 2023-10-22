@@ -66,6 +66,8 @@
                                     <li><a href="{{ url('/service') }}" title="">services feed</a></li>
                                     <li><a href="{{ url('/jobs') }}" title="">job feed</a></li>
                                     <li><a href="{{ url('/projects') }}" title="">project feed</a></li>
+                                    <li><a href="{{ url('/events') }}" title="">events feed</a></li>
+
                                 </ul>
                             </li>
                             <li>
@@ -117,11 +119,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="" class="not-box-openm">
+                                <a href="{{ url('/posts') }}" title="">
+                                    <span><img
+                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/blogg.png') }}"
+                                            alt=""></span>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/jobs') }}" title="" class="not-box-openm">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon6.png') }}"
                                             alt=""></span>
-                                    Messages
+                                    Events
                                 </a>
                                 <div class="notification-box msg" id="message">
                                     <div class="nt-title">

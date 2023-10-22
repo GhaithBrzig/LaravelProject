@@ -8,7 +8,7 @@
                 <div class="post-project">
         <h1 style="font-size: 2em; margin-top: 20px;"><center>Edit Event<center></h1>
 
-        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}">
+        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}" id="jobEditForm">
             @csrf
             @method('PUT')
 
@@ -36,17 +36,6 @@
                 </select>
             </div>
 
-            <!-- Organizer (User) Selection -->
-            <div class="form-group">
-                <label for="user_id">Organizer:</label>
-                <select name="user_id" id="user_id" class="form-control" required>
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}" {{ $user->id === $event->user_id ? 'selected' : '' }}>
-                            {{ $user->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
 
             <!-- Event Description -->
             <div class="form-group">

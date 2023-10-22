@@ -11,6 +11,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventBackOfficeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PostBackoffice;
 use App\Models\Review;
@@ -40,6 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('events', EventController::class);
     Route::resource('projects', ProjectController::class);
 
+
+    Route::post('/attachUserToEvent', [EventController::class, 'attachUserToEvent'])->name('events.attachUserToEvent');
+
+
     //backoffice routes
     Route::get('/adminpanel', function () {
         return view('backOffice/shared/dashboard');
@@ -48,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('services', serviceBackoffice::class);
     Route::resource('postsBack', PostBackoffice::class);
     Route::resource('tags', TagController::class);
-    Route::resource('users', UserController::class);
+    Route::resource('eventsBack', EventBackOfficeController::class);    Route::resource('users', UserController::class);
     Route::resource('review', ReviewController::class);
 
 
