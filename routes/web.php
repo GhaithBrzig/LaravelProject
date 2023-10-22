@@ -9,6 +9,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventBackOfficeController;
 use App\Http\Controllers\ProjectController;
 
 /*
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('services', serviceBackoffice::class);
     Route::resource('tags', TagController::class);
-
+    Route::resource('eventsBack', EventBackOfficeController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

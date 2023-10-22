@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\User;
+use App\Rules\ReservationDeadlineBeforeEvent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        $events = Event::all();
+
+        $events = Event::latest()->filter(request(['type','search']))->paginate(10);
         $eventData = [];
 
         foreach ($events as $event) {
@@ -56,9 +54,13 @@ public function store(Request $request)
         'title' => 'required',
         'type' => 'required|in:Webinar,Workshop,Fair,Competition,Seminar,Program,Virtual chat',
         'description' => 'required',
-        'eventDateTime' => 'required',
-        'reservationDeadline' => 'required',
-        'numberParticipants' => 'required',
+        'eventDateTime' => 'required|date',
+        'reservationDeadline' => [
+            'required',
+            'date',
+            new ReservationDeadlineBeforeEvent,
+        ],        'eventImage' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'numberParticipants' => 'nullable|numeric',
     ]);
 
     // Get the current user's ID
@@ -205,5 +207,25 @@ public function store(Request $request)
         $user->events()->sync($eventsData);
 
         return redirect()->back()->with('success', 'User events synced successfully.');
+    }
+
+
+
+
+    public function eventslist(Request $request)
+    {
+
+        $events = Event::latest()->filter(request(['type','search']))->paginate(10);
+        $eventData = [];
+
+        foreach ($events as $event) {
+            $user = User::find($event->user_id);
+            $eventData[] = [
+                'event' => $event,
+                'user' => $user,
+            ];
+        }
+
+        return view('frontOffice.events.events', compact('eventData'));
     }
 }
