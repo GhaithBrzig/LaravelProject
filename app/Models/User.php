@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->hasMany(Service::class);
     }
 
+    public function likes()
+{
+    return $this->hasMany(Like::class);
+}
+
     /**
      * The attributes that should be hidden for serialization.
      *
