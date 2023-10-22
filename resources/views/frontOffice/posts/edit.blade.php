@@ -42,6 +42,12 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
+                    <div class="form-group">
+                     
+                         <input class="form-control" name="photo" type="file" id="photo"> 
+                    </div>
+                </div> 
+                <div class="col-lg-12">
                     <ul class="d-flex  justify-content-center ">
                         <li><button class="active" type="submit" value="post">Edit</button></li>
                         <li><a href="{{ route('posts.index') }}" title="" >back</a></li>

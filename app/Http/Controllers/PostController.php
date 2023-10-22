@@ -11,7 +11,7 @@ class PostController extends Controller
      // Display a list of posts
     public function index()
     {
-        $posts = Post::latest()->paginate(10); // Retrieve posts, latest first, and paginate them
+        $posts = Post::latest()->filter(request(['category']))->paginate(10); // Retrieve posts, latest first, and paginate them
 
         return view('frontoffice.posts.index', compact('posts'));
     }
@@ -123,6 +123,9 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->category = $request->category;
        /// $post->likes =  "1";
+       if($request->hasFile('photo')) {
+        $post-> photo =    $request->file('photo')->store('posts', 'public');
+    }
         $post->save();
 
         return redirect()->route('posts.index')->with('success','Post Has Been updated successfully');

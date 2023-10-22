@@ -17,7 +17,7 @@
                                     <div class="form-group">     
                                             
                                                 <select name="category" id="category" class="form-control">
-                                                    <option>Category</option>
+                                                    
                                                     <option>Career Advice</option>
                                                     <option>Success Stories</option>
                                                     <option>Mentorship</option>

@@ -11,6 +11,17 @@ class Post extends Model
 
     protected $fillable = ['title', 'content', 'category','likes','photo'];
 
+    public function scopeFilter($query, array $filters) {
+        if($filters['category'] ?? false) {
+            $query->where('category', 'like', '%' . request('category') . '%');
+        }
+
+        if($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('content', 'like', '%' . request('search') . '%')
+                ->orWhere('category', 'like', '%' . request('search') . '%');
+        }
+    }
 
     public function user()
     {

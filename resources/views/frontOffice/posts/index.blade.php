@@ -22,54 +22,51 @@
                         }, 3000); // 3000 milliseconds = 3 seconds
                     </script>
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 pd-left-none no-pd">
-                            <div class="main-left-sidebar no-margin">
-                                <div class="user-data full-width">
-                                    <div class="user-profile">
-                                        <div class="username-dt">
-                                            <div class="usr-pic">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user-pic.png') }}"
-                                                    alt="">
-                                            </div>
-                                        </div><!--username-dt end-->
-                                        <div class="user-specs">
-                                            <h3>John Doe</h3>
-                                            <span>Graphic Designer at Self Employed</span>
+                        
+                        <div class="col-lg-3">
+                            <div class="widget widget-about">
+                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/wd-logo.png') }}"
+                                     alt="">
+                                <h3>Welcome To Our Blog</h3>
+                               
+                            </div><!--widget-about end-->
+                            <div class="filter-secs">
+                                <div class="filter-heading">
+                                    <h3>Filters</h3>
+                                    <a href="#" title="">Clear all filters</a>
+                                </div><!--filter-heading end-->
+                                <div class="paddy">
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>Search</h3>
+                                            <a href="#" title="">Clear</a>
                                         </div>
-                                    </div><!--user-profile end-->
-                                    <ul class="user-fw-status">
-                                        <li>
-                                            <h4>Following</h4>
-                                            <span>34</span>
-                                        </li>
-                                        <li>
-                                            <h4>Followers</h4>
-                                            <span>155</span>
-                                        </li>
-                                        <li>
-                                            <a href="my-profile.html" title="">View Profile</a>
-                                        </li>
-                                    </ul>
-                                </div><!--user-data end-->
-                               <!--suggestions end-->
-                                <div class="tags-sec full-width">
-                                    <ul>
-                                        <li><a href="#" title="">Help Center</a></li>
-                                        <li><a href="#" title="">About</a></li>
-                                        <li><a href="#" title="">Privacy Policy</a></li>
-                                        <li><a href="#" title="">Community Guidelines</a></li>
-                                        <li><a href="#" title="">Cookies Policy</a></li>
-                                        <li><a href="#" title="">Career</a></li>
-                                        <li><a href="#" title="">Language</a></li>
-                                        <li><a href="#" title="">Copyright Policy</a></li>
-                                    </ul>
-                                    <div class="cp-sec">
-                                        <img src="{{Vite::asset('assets/frontoffice_asset/images/logo2.png') }}" alt="">
-                                        <p><img src="{{Vite::asset('assets/frontoffice_asset/images/cp.png') }}"
-                                                alt="">Copyright 2019</p>
+                                        <form>
+                                            <input type="text" name="search" placeholder="Search by title">
+                                        </form>
                                     </div>
-                                </div><!--tags-sec end-->
-                            </div><!--main-left-sidebar end-->
+
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>Post Type</h3>
+                                            <a href="/posts" title="">Clear</a>
+                                            <div class="post-st">
+                                                <ul>
+                                                   <li><a href="/posts/?category=Career Advice" title="">Career Advice</a></li> 
+                                                   <li> <a href="/posts/?category=Entrepreneurship" title="">Entrepreneurship</a></li>
+                                                   <li> <a href="/posts/?category=Mentorship" title="">Mentorship</a></li> 
+                                                   <li><a href="/posts/?category=Success Stories" title="">Success Stories</a></li> 
+                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    
+                                </div>
+                            </div><!--filter-secs end-->
+                        
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
@@ -145,8 +142,10 @@
                                                     <h3>{{ $post->title }}</h3>
                                                     <img class="w-48 mr-6 mb-6"  src="{{ Vite::asset('storage/app/public/' . $post->photo) }}"
                                                             alt="">
+                                                            
                                                     <ul class="job-dt">
-                                                        <li><a href="#" title="">{{ $post->category }}</a></li>
+                                                    <br>
+                                                        <li><a href="/posts/?category={{$post->category}}" title="">{{ $post->category }}</a></li>
                                                        
                                                     </ul>
                                                    
@@ -191,275 +190,13 @@
                                         }
                                     </script>
                                     
-                                    <div class="top-profiles">
-                                        <div class="pf-hd">
-                                            <h3>Top Profiles</h3>
-                                            <i class="la la-ellipsis-v"></i>
-                                        </div>
-                                        <div class="profiles-slider">
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user1.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user2.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user3.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user1.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user2.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/user3.png') }}"
-                                                    alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img
-                                                                src="{{Vite::asset('assets/frontoffice_asset/images/envelop.png') }}"
-                                                                alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                        </div><!--profiles-slider end-->
-                                    </div><!--top-profiles end-->
+                                  
                                 </div><!--posts-section end-->
 
                             </div><!--main-ws-sec end-->
                         </div>
                         {{-- left bar --}}
-                        <div class="col-lg-3 pd-right-none no-pd">
-                            <div class="right-sidebar">
-                                <div class="widget widget-about">
-                                    <img src="{{Vite::asset('assets/frontoffice_asset/images/wd-logo.png') }}" alt="">
-                                    <h3>Track Time on Workwise</h3>
-                                    <span>Pay only for the Hours worked</span>
-                                    <div class="sign_link">
-                                        <h3><a href="sign-in.html" title="">Sign up</a></h3>
-                                        <a href="#" title="">Learn More</a>
-                                    </div>
-                                </div><!--widget-about end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Top Jobs</h3>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior PHP Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Developer Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Most Viewed This Week</h3>
-                                        <i class="la la-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                                <div class="widget suggestions full-width">
-                                    <div class="sd-title">
-                                        <h3>Most Viewed People</h3>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </div><!--sd-title end-->
-                                    <div class="suggestions-list">
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s1.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s2.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s3.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>Poonam</h4>
-                                                <span>Wordpress Developer</span>
-                                            </div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s4.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>Bill Gates</h4>
-                                                <span>C &amp; C++ Developer</span>
-                                            </div>
-                                            <span><i class="lfa fa-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s5.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/s6.png') }}"
-                                                alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </div>
-                                        <div class="view-more">
-                                            <a href="#" title="">View More</a>
-                                        </div>
-                                    </div><!--suggestions-list end-->
-                                </div>
-                            </div><!--right-sidebar end-->
-                        </div>
+                      
                     </div>
                 </div><!-- main-section-data end-->
             </div>

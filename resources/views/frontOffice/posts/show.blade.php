@@ -51,7 +51,11 @@
                                                 </div>
                                                 <div class="job_descp">
                                                     <h3>{{ $post->title }}</h3>
+                                                    <img class="w-48 mr-6 mb-6"  src="{{ Vite::asset('storage/app/public/' . $post->photo) }}"
+                                                            alt="">
+                                                        
                                                     <ul class="job-dt">
+                                                        <br>
                                                         <li><a href="#" title="">{{ $post->category }}</a></li>
                                                        
                                                     </ul>
