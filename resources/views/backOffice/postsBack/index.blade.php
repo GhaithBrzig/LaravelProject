@@ -12,17 +12,21 @@
                                 <div class="row align-items-center gy-3">
                                     <div class="col-sm">
                                         <h5 class="card-title mb-0">List of Posts</h5>
-
-                                        
+                                         
                                     </div>
                                     
                                 </div>
                             </div>
                             <div class="card-body border border-dashed border-end-0 border-start-0">
                             <div class="row g-3">
-                                <div class="col-xxl-1 col-sm-4">
-                                    <a class="btn btn-primary w-100" href="/postsBack" title="">Clear all filters</a>
+                            <div class="col-xxl-1 col-sm-4">
+                                <div class="btn-group"style="margin-right: 10px;">
+                                    <a style="margin-right: 10px;" class="btn btn-primary mr-2" href="/postsBack" title="">Clear all filters</a>
+                                    <a class="btn btn-primary mr-2" href="/PDF" title="">Download PDF</a>
                                 </div>
+                            </div>
+
+
                                
                                    <form>
                                     <div class="row g-3">

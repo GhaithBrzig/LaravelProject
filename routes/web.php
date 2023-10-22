@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PostBackoffice;
-
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/like/{post}', [PostController::class,'like'])->name('posts.like');
     Route::get('/posts/search', [PostController::class,'search'])->name('posts.search');
 
+    Route::resource('/PDF', PDFController::class);
 
 });
 
