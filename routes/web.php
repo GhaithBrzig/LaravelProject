@@ -51,7 +51,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // Route to display a list of posts
-    Route::resource('/posts', PostController::class);
     Route::post('/posts/comments/{post}', [PostController::class, 'store_comment'])->name('posts.store_comment');
     Route::delete('/posts/comments/{comment}', [PostController::class, 'delete_comment'])->name('posts.delete_comment'); // Update the route URL
     Route::post('/like/{post}', [PostController::class, 'like'])->name('posts.like');

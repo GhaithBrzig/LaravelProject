@@ -63,6 +63,10 @@
         .pt--40 {
             padding-top: 40px !important;
         }
+        .edit {
+            width: 50%;
+            margin-right: 50%;
+        }
 
         .mb--25 {
             margin-bottom: 25px !important;
@@ -525,7 +529,10 @@
             <p class="font-weight-bold ">reviews</p>
             @foreach ($reviews as $review)
                 <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}">
-                <h5>John Doe</h5>
+                <h5><?php
+                    $userController = new App\Http\Controllers\UserController; // Create an instance of UserController
+                      $reviewer = $userController->showUser($review->reviewer);                                                                    ?>
+                         {{$reviewer->name }}</h5>
                 <div class="section">
 
                     <div class="form-group row">
@@ -543,6 +550,7 @@
                             <p class="comment_content">{{ $review->comment }}</p>
                             <p>{{ $review->updated_at }}</p>
                         </div>
+                        <div class="edit">
                         <form action="{{ route('reviews.update', $review->id) }}" method="post" autocomplete="off">
                             @csrf
                             @method('PUT')
@@ -550,6 +558,7 @@
                             <button type="submit" class="btn btn-success save-btn" name="save-btn"
                                 style="display: none;"><i class="fa fa-check"></i></button>
                         </form>
+                        </div>
                     </div>
                     <div class="icons">
                         <form method="POST" action="{{ route('reviews.destroy', $review->id) }}"

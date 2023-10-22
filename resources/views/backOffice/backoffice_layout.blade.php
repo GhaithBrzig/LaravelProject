@@ -184,7 +184,6 @@
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{url('tags')}}" >
                                 <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span>
-                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Tags</span>
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
@@ -195,96 +194,28 @@
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{url('review')}}" >
+                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Reviews</span>
+                            </a>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
-                        </li>
+                        </li> <!-- end Dashboard Menu -->
+
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarAuth">
+                            <a class="nav-link menu-link" href="{{url('users')}}" >
                                 <i class="ri-account-circle-line"></i> <span
-                                    data-key="t-authentication">Authentication</span>
+                                    data-key="t-authentication">Users</span>
                             </a>
 
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarPages">
-                                <i class="ri-pages-line"></i> <span data-key="t-pages">Pages</span>
-                            </a>
 
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarLanding" >
-                                <i class="ri-rocket-line"></i> <span data-key="t-landing">Landing</span>
-                            </a>
 
-                        </li>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span
-                                data-key="t-components">Components</span></li>
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarUI">
-                                <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-base-ui">Base UI</span>
-                            </a>
 
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarAdvanceUI" >
-                                <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Advance UI</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
-                                <i class="ri-honour-line"></i> <span data-key="t-widgets">Widgets</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarForms" >
-                                <i class="ri-file-list-3-line"></i> <span data-key="t-forms">Forms</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarTables" >
-                                <i class="ri-layout-grid-line"></i> <span data-key="t-tables">Tables</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarCharts">
-                                <i class="ri-pie-chart-line"></i> <span data-key="t-charts">Charts</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarIcons" >
-                                <i class="ri-compasses-2-line"></i> <span data-key="t-icons">Icons</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarMaps" >
-                                <i class="ri-map-pin-line"></i> <span data-key="t-maps">Maps</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarMultilevel">
-                                <i class="ri-share-line"></i> <span data-key="t-multi-level">Multi Level</span>
-                            </a>
-
-                        </li>
 
                     </ul>
                 </div>
