@@ -15,6 +15,7 @@ class PostController extends Controller
 
         return view('frontoffice.posts.index', compact('posts'));
     }
+    
 
     public function like(Post $post)
 {
@@ -39,17 +40,18 @@ class PostController extends Controller
             'category' => 'required|string',
             
         ]); 
-        // $file_extensions = $request-> photo -> getClientOriginalExtensions();
-        // $file_name= time(). '.' .$file_extensions;
-        // $path = 'images/posts';
-        // $request -> photo -> move($path,$file_name);
+        $user_id = auth()->user()->id;
+       
         $post = new Post;
         $post->title = $request->title;
-        $post->user_id = "1";
+        $post->user_id =  $user_id;
         $post->content = $request->content;
         $post->category = $request->category;
         $post->likes =  0;
-        $post-> photo =    "hhgdfgdrg";
+        if($request->hasFile('photo')) {
+            $post-> photo =    $request->file('photo')->store('posts', 'public');
+        }
+       
         $post->save();
 
        
@@ -65,11 +67,11 @@ class PostController extends Controller
             'content' => 'required',
             
         ]);
-
+        $user_id = auth()->user()->id;
         // Create a new comment
         $comment = new Comment();
         $comment->content = $request->input('content');
-        $comment->user_id = "1";
+        $comment->user_id = $user_id;
         $comment->post_id =  $id;      
     
         $comment->save();

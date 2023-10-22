@@ -87,7 +87,12 @@
 
                                         </ul>
                                     </div><!--post-st end-->
+                                    
                                 </div>
+                                <div class="col-lg-12">
+                    
+                
+                            
                                 <!--post-topbar end-->
 
                                 <div class="posts-section">
@@ -96,10 +101,10 @@
                                             <div class="post-bar">
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
-                                                        <img src="{{Vite::asset($post->photo) }}"
+                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                                             alt="">
                                                         <div class="usy-name">
-                                                            <h3>Acil Farhat </h3>
+                                                            <h3>{{ $post->user->username }} </h3>
 
                                                         </div>
                                                     </div>
@@ -138,6 +143,8 @@
                                                 </div>
                                                 <div class="job_descp">
                                                     <h3>{{ $post->title }}</h3>
+                                                    <img class="w-48 mr-6 mb-6"  src="{{ Vite::asset('storage/app/public/' . $post->photo) }}"
+                                                            alt="">
                                                     <ul class="job-dt">
                                                         <li><a href="#" title="">{{ $post->category }}</a></li>
                                                        

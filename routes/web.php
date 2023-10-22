@@ -65,6 +65,7 @@ Route::get('/adminpanel', function () {
 Route::resource('/posts', PostController::class);
 Route::post('/posts/{post}', [PostController::class, 'store_comment'])->name('posts.store_comment');
 Route::post('/like/{post}', [PostController::class,'like'])->name('posts.like');
+Route::get('/posts/search', [PostController::class,'search'])->name('posts.search');
 
 
 
