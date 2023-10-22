@@ -12,28 +12,51 @@
                                 <div class="row align-items-center gy-3">
                                     <div class="col-sm">
                                         <h5 class="card-title mb-0">List of Posts</h5>
+
+                                        
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="card-body border border-dashed border-end-0 border-start-0">
-                                <form>
+                            <div class="row g-3">
+                                <div class="col-xxl-1 col-sm-4">
+                                    <a class="btn btn-primary w-100" href="/postsBack" title="">Clear all filters</a>
+                                </div>
+                               
+                                   <form>
                                     <div class="row g-3">
                                         <div class="col-xxl-5 col-sm-6">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search"
-                                                    placeholder="Search for order ID, customer, order status or something...">
+                                            <form>
+                                            
+                                        
+                                                    <input type="text" class="form-control search"
+                                                        name="search"  placeholder="Search by title ,content or category ...">
+                                                   </form>
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
+                                           
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xxl-1 col-sm-4">
-                                            <div>
-                                                <button type="button" class="btn btn-primary w-100"
-                                                    onclick="SearchData();"> <i
-                                                        class="ri-equalizer-fill me-1 align-bottom"></i>
-                                                    Filters
-                                                </button>
-                                            </div>
+                                       
+                                        <div class="card">
+                                    <div class="card-header border-0 align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Filter by Category</h4>
+                                        <div>
+                                            <a href="/postsBack/?category=Success Stories"   class="btn btn-soft-secondary btn-sm">
+                                            SUCCESS STORIES
+                                            </a>
+                                            <a  href="/postsBack/?category=Entrepreneurship"  class="btn btn-soft-secondary btn-sm">
+                                            ENTREPRENEURSHIP
+                                            </a>
+                                            <a href="/postsBack/?category=Mentorship"  class="btn btn-soft-secondary btn-sm">
+                                            MENTORSHIP
+                                            </a>
+                                            <a href="/postsBack/?category=Career Advice"   class="btn btn-soft-secondary btn-sm">
+                                            Career Advice
+                                            </a>
+                                        </div>
                                         </div>
                                         <!--end col-->
                                     </div>
