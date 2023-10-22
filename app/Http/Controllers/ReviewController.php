@@ -16,7 +16,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('frontoffice.reviews.index',compact('reviews'));
+        return view('backoffice.review.index',compact('reviews'));
     }
 
     /**
@@ -46,10 +46,11 @@ class ReviewController extends Controller
         $review = new Review();
         $review->rating = $request->rating;
         $review->comment = $request->comment;
-        $review->reviewer=1;
+        $review->reviewer=auth()->user();
+        ;
         $review->reviewedUser=2;
         $review->save();
-        return redirect()->back();
+        return view('frontoffice.reviews.create', compact('review'));    
 
     }
     /**
@@ -117,7 +118,7 @@ class ReviewController extends Controller
         
         $review->fill($request->post())->save();
 
-        return redirect()->route('reviews.index');    }
+        return redirect()->route('reviews.create');    }
     /**
      * Remove the specified resource from storage.
      *
