@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('content'); 
             $table->enum('category', ['Career Advice', 'Success Stories', 'Entrepreneurship','Mentorship']);          
             $table->unsignedBigInteger('user_id');
-            $table->integer('likes');
+            $table->unsignedInteger('likes')->default(0);
             $table->string('photo', 300);
             $table->timestamps();
 

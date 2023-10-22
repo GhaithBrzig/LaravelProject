@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,13 +44,13 @@ return [
             'throw' => false,
         ],
 
-        // 'posts' => [
-        //     'driver' => 'local',
-        //     'root' => base_path() . 'public/images/posts/',
-        //     'url' => env('APP_URL').'/storage',
-        //     'visibility' => 'public',
-        //     'throw' => false,
-        // ],
+        'posts' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/posts/',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
 
         's3' => [

@@ -109,6 +109,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ url('/posts') }}" title="">
+                                    <span><img
+                                            src="{{ Vite::asset('resources/assets/frontoffice_asset/images/blogg.png') }}"
+                                            alt=""></span>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#" title="" class="not-box-openm">
                                     <span><img
                                             src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon6.png') }}"

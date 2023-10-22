@@ -9,10 +9,10 @@
                 <div class="post-bar">
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
-                                                        <img src="{{Vite::asset('assets/frontoffice_asset/images/resources/us-pic.png') }}"
+                                                    <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
                                                             alt="">
                                                         <div class="usy-name">
-                                                            <h3>Acil Farhat </h3>
+                                                            <h3>{{ $post->user->username }} </h3>
 
                                                         </div>
                                                     </div>
@@ -26,8 +26,8 @@
                                                                 
                                                                     <li><a onclick="confirmDelete('{{ $post->title }}', {{ $post->id }})" class="text-danger"  href="#" title="">Delete</a></li>
                                                                
-                                                            
-                                                          
+                                                            <!-- Add a hidden form for the delete action -->
+                                          
                                                             
                                                         </ul>
                                                     </div>
@@ -51,7 +51,11 @@
                                                 </div>
                                                 <div class="job_descp">
                                                     <h3>{{ $post->title }}</h3>
+                                                    <img class="w-48 mr-6 mb-6"  src="{{ Vite::asset('storage/app/public/' . $post->photo) }}"
+                                                            alt="">
+                                                        
                                                     <ul class="job-dt">
+                                                        <br>
                                                         <li><a href="#" title="">{{ $post->category }}</a></li>
                                                        
                                                     </ul>
@@ -102,11 +106,11 @@
                     <div class="card my-5">
 					<h5 class="card-header">Add Comment</h5>
 					<div class="card-body">
-						<form method="post" action="{{ route('posts.store_comment',['post'=> $post->id]) }}">
-						@csrf
-                        
-						<textarea name="content" class="form-control"></textarea>
-						<input type="submit" class="btn btn-dark mt-2" />
+                    <form method="post" action="{{ route('posts.store_comment', ['post' => $post->id]) }}">
+                        @csrf
+                        <textarea name="content" class="form-control"></textarea>
+                        <input type="submit" class="btn btn-dark mt-2" value="Add Comment">
+                    </form>
 					</div>
 				</div>
                 <!-- Fetch Comments -->
@@ -122,9 +126,10 @@
                                                                 <a href="#" title="" class="ed-opts-open"><i
                                                                         class="fa fa-ellipsis-v"></i></a>
                                                                 <ul class="ed-options">
-                                                                        
-                                                                            <a >Edit </a> 
-                                                                            <!-- <a class="text-danger">Delete</a> -->
+                                                                
+                                                                          
+                                                                <li><a onclick="confirmDeletecomment({{  $comment->id }})" class="text-danger"  href="#" title="">Delete</a></li>
+                                                               
                                                                         
                                                                         
                                                                 
@@ -134,20 +139,39 @@
                                                         
                                         <div class="job_descp">
                                                                  
-                                        <!-- Display comment content, user, and date -->
-                                             <h3> User : {{ $comment->user->name }}</h3>
-                                               <h4>{{ $comment->content }}</h4>
-                                                                                
-                                                
+                                            <!-- Display comment content, user, and date -->
+                                            <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"   alt="">     
+                                           
+                                            <h3> User : {{ $comment->user->username }}</h3>
+                                            <br>
+                                                <h4>{{ $comment->content }}</h4>
+                                                                                    
+                                                    
 
                                                                                 <!-- Edit and Delete buttons for comments -->
                                         <div>
                            
                                                                                 
                                                         </div>
-                                             <h3><hr></h3>    
+                                             <h3><hr></h3>   
+                                             <form id="delete-comment-{{ $comment->id }}" action="{{ route('posts.delete_comment', ['comment' => $comment->id]) }}"
+                                                  method="POST" style="display: none;" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                            </form> 
                                                              
                             @endforeach
+                                            
+                                        </div><!--post-bar end-->
+
+                                    <script>
+                                                function confirmDeletecomment(Id) {
+                                                    var confirmation = confirm("Are you sure you want to delete this comment :"+ Id+"?");
+                                                    if (confirmation) {
+                                                        document.getElementById('delete-comment-' + Id).submit();
+                                                    }
+                                                }
+                                    </script>
                            
                         </div>
                                                 
