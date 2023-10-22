@@ -3,17 +3,20 @@
 @section('frontoffice')
     <div class="post-project-fields">
         <h3 class="text-center mb-5 fw-bold ">Update a service</h3>
-        {{-- error message --}}
-        {{-- @if ($errors->any())
+          {{-- error message --}}
+          @if($errors->any())
 
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div> --}}
-
+          <div class="alert alert-danger">
+              <ul>
+              @foreach($errors->all() as $error)
+          
+                  <li>{{ $error }}</li>
+          
+              @endforeach
+              </ul>
+          </div>
+          
+          @endif
             <form action="{{ route('service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

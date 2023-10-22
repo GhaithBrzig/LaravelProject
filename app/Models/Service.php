@@ -14,6 +14,7 @@ class Service extends Model
         'pricePerHour',
         'description',
         'type',
+        'user_id'
     ];
 
     /**
@@ -25,5 +26,9 @@ class Service extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'ServiceTag');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -19,8 +19,12 @@ return new class extends Migration
             $table->integer('pricePerHour');
             $table->string('description');
             $table->enum('type', ['Full time', 'Part time', 'Contract','Temporary']);
+            $table->unsignedBigInteger('user_id'); // Add this line for the foreign key
             $table->timestamps();
-        });
+    
+            // Define the foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+             });
     }
 
     /**
