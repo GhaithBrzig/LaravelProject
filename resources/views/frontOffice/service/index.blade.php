@@ -45,7 +45,8 @@
                                             <div class="post-bar">
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
-                                                        <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}"
+
+                                                        <img src="{{ Vite::asset('storage/app/public/' . $row->user->profileImage) }}" width="30%"
                                                             alt="">
                                                         <div class="usy-name">
                                                             <h3>{{ $row->user->name }}</h3>
@@ -78,7 +79,7 @@
 
                                                             </form>
                                                             {{-- <li><a href="#" title="">Edit </a></li> --}}
-
+                                                            <a href="{{ route('reviews.show', ['id' => $row->user->id]) }}">View Reviews</a>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -90,11 +91,11 @@
                                                         {{-- <li><img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/icon9.png') }}"
                                                                 alt=""><span>Tunisia</span></li> --}}
                                                     </ul>
-                                                 
+
                                                 </div>
                                                 <div class="job_descp">
                                                     <div class="d-flex">
-                                                        <h3>{{ $row->serviceName }} </h3> 
+                                                        <h3>{{ $row->serviceName }} </h3>
 
                                                     </div>
                                                     <ul class="job-dt">

@@ -40,7 +40,7 @@ class ReviewController extends Controller
 
         $request->validate([
             'rating' => 'required',
-            'comment' => 'required',
+            'comment' => 'required|min:10',
         ]);
 
         $review = new Review();
@@ -64,9 +64,10 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $reviews = Review::where('reviewedUser', $id)->get();
+        return view('frontoffice.reviews.create', compact('reviews','id'));
 
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -133,7 +134,7 @@ class ReviewController extends Controller
         $review= Review::findOrFail($id);
 
         $review->delete();
-        return redirect()->back();
+        return redirect()->route('reviews.create');
 
     }
 }

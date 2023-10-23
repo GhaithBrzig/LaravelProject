@@ -1,7 +1,7 @@
 @extends('frontoffice.frontoffice_layout')
 
 @section('frontoffice')
-    
+
 
     <main>
         <div class="container mt-5">
@@ -20,15 +20,15 @@
                                                         <a href="#" title="" class="ed-opts-open"><i
                                                                 class="fa fa-ellipsis-v"></i></a>
                                                         <ul class="ed-options">
-                                                                
+
                                                                     <li><a  href="{{ route('posts.edit',['post'=> $post->id]) }}">Edit Post</a></li>
                                                                     <li><a  href="{{ route('posts.show',['post'=> $post->id]) }}">details</a></li>
-                                                                
+
                                                                     <li><a onclick="confirmDelete('{{ $post->title }}', {{ $post->id }})" class="text-danger"  href="#" title="">Delete</a></li>
-                                                               
+
                                                             <!-- Add a hidden form for the delete action -->
-                                          
-                                                            
+
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -53,55 +53,55 @@
                                                     <h3>{{ $post->title }}</h3>
                                                     <img class="w-48 mr-6 mb-6"  src="{{ Vite::asset('storage/app/public/' . $post->photo) }}"
                                                             alt="">
-                                                        
-                                                    <ul class="job-dt">
-                                                        <br>
-                                                        <li><a href="#" title="">{{ $post->category }}</a></li>
-                                                       
-                                                    </ul>
-                                                   
-                                                    <p> {{ $post->content }} <a href="#" title=""></a></p>
-												
+
+                                                            <ul class="job-dt">
+                                                                <br>
+                                                                    <li><a href="/posts/?category={{$post->category}}" title="">{{ $post->category }}</a></li>
+
+
+                                                                   <li><br> <p> {{ $post->content }} </p></li>
+                                                                </ul>
+
                                                     <div class="job-status-bar">
                                                         <ul class="like-com">
                                                             <li>
                                                             <form action="{{ route('posts.like', ['post' => $post]) }}" method="post">
                                                                 @csrf
                                                                 <button type="submit"><a href="#"><i class="fa fa-heart"></i> Like {{ $post->likes }}</a></button>
-                                                                
+
                                                             </form>
                                                                 <img   src="{{Vite::asset('assets/frontoffice_asset/images/iked-img.png') }}l" alt="">
-                                                                
-                                                            </li> 
+
+                                                            </li>
                                                             <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment </a></li>
                                                            <li>
-                                                           
-                                                              
 
 
-                                                                        
+
+
+
                                                                <a href="{{ url('/posts') }}" class="com">Go Back</a>
-                                                                      
-                                                                    
-                                                            </li> 
-                                                            
-                                                            
+
+
+                                                            </li>
+
+
                                                         </ul>
-												
+
 											        </div>
-                                                    
-                                                    
+
+
 
                                                 </div>
-                                               
+
                                             </div><!--post-bar end-->
-                                           
-                                       
+
+
             </div>
         <div class="container mt-5">
             <div class="col-md-8 mx-auto">
                 <div class="posts-section">
-              
+
                     <div class="post-bar">
                     <div class="card my-5">
 					<h5 class="card-header">Add Comment</h5>
@@ -118,50 +118,51 @@
 					<h5 class="card-header">Comments </h5>
                         <div class="card-body">
                             @foreach ($comments  as $comment)
-                                                        
-                           
+
+
                                      <div class="post_topbar">
-                                               
+
                                         <div class="ed-opts">
                                                                 <a href="#" title="" class="ed-opts-open"><i
                                                                         class="fa fa-ellipsis-v"></i></a>
                                                                 <ul class="ed-options">
-                                                                
-                                                                          
+
+
                                                                 <li><a onclick="confirmDeletecomment({{  $comment->id }})" class="text-danger"  href="#" title="">Delete</a></li>
-                                                               
-                                                                        
-                                                                        
-                                                                
-                                                                    
+
+
+
+
+
                                                                 </ul>
                                         </div>
-                                                        
+
                                         <div class="job_descp">
-                                                                 
+
                                             <!-- Display comment content, user, and date -->
-                                            <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"   alt="">     
-                                           
-                                            <h3> User : {{ $comment->user->username }}</h3>
+
+                                            <img src="{{ Vite::asset('storage/app/public/' .  $comment->user->profileImage)  }}"   alt=""  width="5%">
+
+                                            <h3> {{ $comment->user->username }}</h3>
                                             <br>
                                                 <h4>{{ $comment->content }}</h4>
-                                                                                    
-                                                    
+
+
 
                                                                                 <!-- Edit and Delete buttons for comments -->
                                         <div>
-                           
-                                                                                
+
+
                                                         </div>
-                                             <h3><hr></h3>   
+                                             <h3><hr></h3>
                                              <form id="delete-comment-{{ $comment->id }}" action="{{ route('posts.delete_comment', ['comment' => $comment->id]) }}"
                                                   method="POST" style="display: none;" >
                                                     @csrf
                                                     @method('DELETE')
-                                            </form> 
-                                                             
+                                            </form>
+
                             @endforeach
-                                            
+
                                         </div><!--post-bar end-->
 
                                     <script>
@@ -172,22 +173,22 @@
                                                     }
                                                 }
                                     </script>
-                           
+
                         </div>
-                                                
-                                    
-                                                
-                                                        
-                                                            
+
+
+
+
+
                     </div>
 				</div>
 			</div>
-                        
-                                                    
+
+
         </div>
-                                          
-                                       
+
+
     </div>
-            
+
     </main>
 @endsection

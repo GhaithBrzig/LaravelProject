@@ -13,8 +13,9 @@ class serviceBackoffice extends Controller
     * @return \Illuminate\Http\Response
     */
     public function index()
-    {
-        $data = Service::latest()->paginate(5);
+    {          // Retrieve posts, latest first, and paginate them
+
+        $data = Service::latest()->filter(request(['search']))->paginate(5);
 
         return view('backoffice.service.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }

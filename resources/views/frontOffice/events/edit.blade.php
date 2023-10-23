@@ -8,7 +8,7 @@
                 <div class="post-project">
         <h1 style="font-size: 2em; margin-top: 20px;"><center>Edit Event<center></h1>
 
-        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}" id="jobEditForm">
+        <form method="POST" action="{{ route('events.update', ['event' => $event->id]) }}" id="jobEditForm"  enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -52,8 +52,13 @@
             <!-- Reservation Deadline -->
             <div class="form-group">
                 <label for="reservationDeadline">Reservation Deadline:</label>
-                <input type="date" name="reservationDeadline" id="reservationDeadline" class="form-control" value="{{ $event->reservationDeadline }}" required>
+                <input type="date" name="reservationDeadline" id="reservationDeadline" class="form-control" required>
             </div>
+
+                <div class="form-group"> value="{{ $event->reservationDeadline }}"
+                    <label for="eventImage">Event Image URL:</label>
+                    <input class="form-control" name="eventImage"   value="{{ $event->eventImage }}" type="file" id="eventImage">
+                </div>
 
             <button type="submit" class="btn btn-primary">Update Event</button>
         </form>

@@ -103,9 +103,9 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}">
+                                                    <img  src="{{ Vite::asset('storage/app/public/' . Auth::user()->profileImage) }}" width="30%">
                                                     <div class="usy-name">
-                                                        <h3>Ghaith</h3>
+                                                        <h3>{{Auth::user()->username}}</h3>
                                                         <span> <img src="{{Vite::asset('resources/assets/frontoffice_asset/images/resources/clock.png') }}">3 min ago</span>
                                                     </div>
                                                 </div>

@@ -23,18 +23,11 @@
 
                     <div class="row" style="height: 730px">
                         <div class="col-lg-3">
-                            <div class="widget widget-about">
-                                <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/wd-logo.png') }}"
-                                    alt="">
-                                <h3>Your Professional Journey Starts Here.</h3>
-                                <div class="sign_link">
-                                    <a href="sign-in.html" title="">Sign Up Now ! </a>
-                                </div>
-                            </div><!--widget-about end-->
+
                             <div class="filter-secs">
                                 <div class="filter-heading">
                                     <h3>Filters</h3>
-                                    <a href="#" title="">Clear all filters</a>
+                                    <a href="/events"  title="">Clear all filters</a>
                                 </div><!--filter-heading end-->
                                 <div class="paddy">
                                     <div class="filter-dd">
@@ -77,8 +70,9 @@
                                         <div class="post-bar event-container" id="event-{{ $data['event']->id }}">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
+
                                                     <img
-                                                        src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/us-pic.png') }}">
+                                                    src="{{ Vite::asset('storage/app/public/' . $data['user']->profileImage) }}" width="30%">
                                                     <div class="usy-name">
                                                         <h3> {{ $data['user'] ? $data['user']->username : 'N/A' }}</h3>
                                                         <span> <img
@@ -92,14 +86,14 @@
                                                             alt="Ellipsis Image">
                                                     </a>
                                                     <ul class="ed-options">
-                                                        <li><a href="{{ route('events.edit', ['event' => $data['event']->id]) }}"
-                                                                class="text-success">Edit event</a></li>
-                                                        <li><a href="{{ route('events.show', ['event' => $data['event']->id]) }}"
-                                                                class="text-info">Details</a></li>
+                                                        @if ($data['user']->user_id != Auth::user()->id)
+                                                        <li><a href="{{ route('events.edit', ['event' => $data['event']->id]) }}" class="text-success">Edit event</a></li>
+                                                        <li><a href="{{ route('events.show', ['event' => $data['event']->id]) }}" class="text-info">Details</a></li>
+                                                        <li>
+                                                            <a href="#" title="" onclick="confirmDelete('{{ $data['event']->title }}', {{ $data['event']->id }})" class="text-danger">Delete</a>
+                                                        </li>
+                                                    @endif
 
-                                                                <li>
-                                                                    <a href="#" title="" onclick="confirmDelete('{{ $data['event']->title }}', {{ $data['event']->id }})" class="text-danger">Delete</a>
-                                                                </li>
 
                                                         <li>
                                                             <form method="POST"
@@ -107,7 +101,7 @@
                                                                 @csrf
                                                                 <input type="hidden" name="event_id"
                                                                     value="{{ $data['event']->id }}">
-                                                                <button type="submit">Attach User to Event</button>
+                                                                <button type="submit">reserve</button>
                                                             </form>
                                                         </li>
                                                     </ul>

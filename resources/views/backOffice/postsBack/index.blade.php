@@ -12,9 +12,9 @@
                                 <div class="row align-items-center gy-3">
                                     <div class="col-sm">
                                         <h5 class="card-title mb-0">List of Posts</h5>
-                                         
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="card-body border border-dashed border-end-0 border-start-0">
@@ -27,23 +27,23 @@
                             </div>
 
 
-                               
+
                                    <form>
                                     <div class="row g-3">
                                         <div class="col-xxl-5 col-sm-6">
                                             <div class="search-box">
                                             <form>
-                                            
-                                        
+
+
                                                     <input type="text" class="form-control search"
                                                         name="search"  placeholder="Search by title ,content or category ...">
                                                    </form>
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
-                                           
+
                                         </div>
                                         <!--end col-->
-                                       
+
                                         <div class="card">
                                     <div class="card-header border-0 align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Filter by Category</h4>
@@ -102,8 +102,8 @@
                                                             <td class="id"><a href="apps-ecommerce-order-details.html"
                                                                     class="fw-medium link-primary">{{ $post->title }}</a>
                                                             </td>
-                                            
-                                                            
+
+
                                                             <td class="product_name">{{ $post->content }}</td>
 
                                                             <td class="status">
@@ -113,7 +113,7 @@
                                                             <td class="date">
                                                                 {{ \Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}
                                                                 <!-- Display the date -->
-                                                                
+
                                                             </td>
 
 
@@ -144,7 +144,7 @@
                                                 @endif
                                             </tbody>
                                         </table>
-                                        
+
                                     </div>
                                     <div class="d-flex justify-content-end">
                                         <div class="pagination-wrap hstack gap-2">
@@ -158,10 +158,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
 
-                               
-                               
+
+
+
 
 
                             </div>

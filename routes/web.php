@@ -14,8 +14,9 @@ use App\Http\Controllers\EventBackOfficeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ChartController;
-
 use App\Http\Controllers\PostBackoffice;
+
+use App\Http\Controllers\EventsPDFController;
 use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('events', EventController::class);
     Route::resource('projects', ProjectController::class);
+    Route::get('/reviews/{id}', 'ReviewController@show')->name('reviews.show');
+    Route::get('/users/edit', [UserController::class, 'edit'])->name('users.edit');
+
     Route::post('/attachUserToEvent', [EventController::class, 'attachUserToEvent'])->name('events.attachUserToEvent');
     //backoffice routes
     Route::get('/adminpanel', function () {
@@ -61,6 +65,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
 
     Route::resource('/PDF', PDFController::class);
+    Route::resource('/EventsPDF',  EventsPDFController::class);
+
 
     Route::resource('projects.tasks', TaskController::class);
 

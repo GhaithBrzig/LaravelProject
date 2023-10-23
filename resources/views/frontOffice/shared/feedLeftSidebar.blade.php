@@ -4,8 +4,8 @@
         <div class="user-profile">
             <div class="username-dt">
                 <div class="usr-pic">
-                    <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user-pic.png') }}"
-                        alt="">
+                    <img src="{{ Vite::asset('storage/app/public/' . Auth::user()->profileImage) }}"
+                        alt="t">
                 </div>
             </div><!--username-dt end-->
             <div class="user-specs">
@@ -13,24 +13,13 @@
                 <span>{{ strtoupper(Auth::user()->username) }}</span>
             </div>
         </div><!--user-profile end-->
-        <ul class="user-fw-status">
-          
-            <li>
-                <a href="my-profile.html" title="">View Profile</a>
-            </li>
-        </ul>
+
     </div><!--user-data end-->
-   
+
     <div class="tags-sec full-width">
         <ul>
             <li><a href="#" title="">Help Center</a></li>
             <li><a href="#" title="">About</a></li>
-            <li><a href="#" title="">Privacy Policy</a></li>
-            <li><a href="#" title="">Community Guidelines</a></li>
-            <li><a href="#" title="">Cookies Policy</a></li>
-            <li><a href="#" title="">Career</a></li>
-            <li><a href="#" title="">Language</a></li>
-            <li><a href="#" title="">Copyright Policy</a></li>
         </ul>
         <div class="cp-sec">
             <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/logo2.png') }}"

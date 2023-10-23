@@ -12,11 +12,14 @@
                                 <div class="col-sm">
                                     <h5 class="card-title mb-0">List of Events</h5>
                                 </div>
+
                             </div>
                         </div>
+
                         <div class="card-body border border-dashed border-end-0 border-start-0">
-                            <!-- Add your search and filter form here if needed -->
-                        </div>
+                                <div class="btn-group"style="margin-right: 10px;">
+                                    <a class="btn btn-primary mr-2" href="/EventsPDF" title="">Download PDF</a>
+                            </div>                        </div>
                         <div class="card-body pt-0">
                             <div>
                                 <div class="table-responsive table-card mb-1">

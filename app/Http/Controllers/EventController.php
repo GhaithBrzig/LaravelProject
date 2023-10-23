@@ -140,6 +140,9 @@ public function store(Request $request)
     public function update(Request $request, $id)
     {
         $event = Event::findOrFail($id);
+        if ($request->hasFile('eventImage')) {
+            $event['eventImage'] = $request->file('eventImage')->store('events', 'public');
+        }
         $event->fill($request->post())->save();
 
 

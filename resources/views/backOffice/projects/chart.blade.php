@@ -19,7 +19,7 @@
                 </div>
                 <!-- end card header -->
 
-                <div class="card-body" style="width:100%;max-width: 716px;margin: 0 auto">
+                <div class="card-body" style="width:100%;max-width: 500px;margin: 0 auto">
                     {!! $chart->container() !!}
                 </div>
 

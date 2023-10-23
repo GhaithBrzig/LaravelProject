@@ -62,44 +62,25 @@ class UserController extends Controller
         return $user;
     }
 
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
+    public function edit()
+    {       $user = auth()->user();
+        return view('frontOffice.users.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'username' => 'required|unique:users,username,' . $id,
-            'email' => 'required|email|unique:users,email,' . $id,
-            'userType' => 'required',
-            'profileImage' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'coverImage' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-        ]);
-
-        $data = $request->all();
 
         $user = User::findOrFail($id);
-
         if ($request->hasFile('profileImage')) {
-            $profileImage = $request->file('profileImage');
-            $profileImageName = time() . '_' . $profileImage->getClientOriginalName();
-            $profileImage->move(public_path('images/profile'), $profileImageName);
-            $data['profileImage'] = 'images/profile/' . $profileImageName;
+            $user['profileImage'] = $request->file('profileImage')->store('users', 'public');
         }
-
         if ($request->hasFile('coverImage')) {
-            $coverImage = $request->file('coverImage');
-            $coverImageName = time() . '_' . $coverImage->getClientOriginalName();
-            $coverImage->move(public_path('images/cover'), $coverImageName);
-            $data['coverImage'] = 'images/cover/' . $coverImageName;
+            $user['coverImage'] = $request->file('coverImage')->store('users', 'public');
         }
+        $user->fill($request->post())->save();
 
-        $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->back();
     }
 
     public function destroy($id)

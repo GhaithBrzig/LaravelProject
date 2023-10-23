@@ -15,27 +15,30 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <a style="margin-right: 10px;" class="btn btn-primary mr-2" href="/services" title=""> Clear Search</a>
+
+
+
+
+
+
+
                             <div class="card-body border border-dashed border-end-0 border-start-0">
                                 <form>
                                     <div class="row g-3">
                                         <div class="col-xxl-5 col-sm-6">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search"
-                                                    placeholder="Search for order ID, customer, order status or something...">
-                                                <i class="ri-search-line search-icon"></i>
-                                            </div>
+                                                <form>
+
+
+                                                        <input type="text" class="form-control search"
+                                                            name="search"  placeholder="Search by title , type...">
+                                                       </form>
+                                                    <i class="ri-search-line search-icon"></i>
+                                                </div>
                                         </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-1 col-sm-4">
-                                            <div>
-                                                <button type="button" class="btn btn-primary w-100"
-                                                    onclick="SearchData();"> <i
-                                                        class="ri-equalizer-fill me-1 align-bottom"></i>
-                                                    Filters
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
                                     </div>
                                     <!--end row-->
                                 </form>

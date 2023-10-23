@@ -86,10 +86,7 @@
                                             alt=""></span>
                                     Profiles
                                 </a>
-                                <ul>
-                                    <li><a href="user-profile.html" title="">User Profile</a></li>
-                                    <li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
-                                </ul>
+
                             </li>
                             <li>
                                 <a href="{{ url('/jobs') }}" title="">
@@ -187,8 +184,9 @@
                     </div><!--menu-btn end-->
                     <div class="user-account">
                         <div class="user-info">
-                            <img src="{{ Vite::asset('resources/assets/frontoffice_asset/images/resources/user.png') }}"
-                                alt="">
+
+                            <img src="{{ Vite::asset('storage/app/public/' . Auth::user()->profileImage) }}"
+                                alt="" width="30%">
                             <a href="#" title="">{{Auth::user()->name}}</a>
                             <i class="fa fa-sort-down"></i>
                             <i class="fa fa-sort-down"></i>
@@ -224,10 +222,8 @@
                             </div><!--search_form end-->
                             <h3>Setting</h3>
                             <ul class="us-links">
-                                <li><a href="profile-account-setting.html" title="">Account Setting</a></li>
-                                <li><a href="#" title="">Privacy</a></li>
-                                <li><a href="#" title="">Faqs</a></li>
-                                <li><a href="#" title="">Terms & Conditions</a></li>
+                                <li> <a href="{{ url('/users/edit') }}" title="">Account Setting</a></li>
+
                             </ul>
                             <h3 class="tc">
                                 <a href="#" title="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
