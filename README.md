@@ -1,4 +1,17 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
+# Freelance app
+<div align="center">
+   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/GhaithBrzig/LaravelProject">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/GhaithBrzig/LaravelProject">
+<img alt="GitHub Top language" src="https://img.shields.io/github/languages/top/GhaithBrzig/LaravelProject">
+<img src="https://img.shields.io/github/issues-pr-closed/GhaithBrzig/LaravelProject" />
+  
+</div>
+
+A freelance web app connects freelancers and clients, simplifying job posting, bidding, project management, and payments.
+
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo"></a></p>
 
 # Prerequisites
 - php 8
